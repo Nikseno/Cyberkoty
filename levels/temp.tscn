@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqrgorgy7h8ut"]
+[gd_scene load_steps=7 format=3 uid="uid://bqrgorgy7h8ut"]
 
 [ext_resource type="PackedScene" uid="uid://clwb3m7tlyemh" path="res://player/Player.tscn" id="1_degxi"]
+[ext_resource type="PackedScene" uid="uid://bpif1y75pwluu" path="res://UI/network_ui.tscn" id="2_cpqq0"]
+[ext_resource type="Script" uid="uid://d0k5he337o7vl" path="res://scripts/multiplayer_spawner.gd" id="3_s8mo5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pippe"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -27,9 +29,18 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 use_collision = true
 size = Vector3(10, 1, 10)
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_degxi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1.2024846, 2)
+[node name="networkUI" parent="." instance=ExtResource("2_cpqq0")]
+offset_left = 136.10059
+offset_top = 93.96913
+offset_right = 136.10059
+offset_bottom = 93.96912
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://clwb3m7tlyemh")
+spawn_path = NodePath("..")
+script = ExtResource("3_s8mo5")
+networkPlayer = ExtResource("1_degxi")
