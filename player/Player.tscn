@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://clwb3m7tlyemh"]
+[gd_scene load_steps=5 format=3 uid="uid://clwb3m7tlyemh"]
 
 [ext_resource type="Script" uid="uid://dyw1a8rr32uee" path="res://scripts/playerControler.gd" id="1_xhfnw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kpjcp"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_kne1u"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ulp21"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_xhfnw")
@@ -19,3 +24,6 @@ mesh = SubResource("CapsuleMesh_kne1u")
 
 [node name="Camera3D" type="Camera3D" parent="CameraMount"]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 2, 2)
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ulp21")
