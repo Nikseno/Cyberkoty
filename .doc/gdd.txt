@@ -1,0 +1,432 @@
+Game Design Document: Cyberpurr (v1.3)
+1. Streszczenie Gry (Game Pitch)
+Cyberpurr to kooperacyjna gra akcji dla 1-3 graczy, łącząca intensywne zarządzanie statkiem kosmicznym w stylu FTL: Faster Than Light z chaosem i pracą zespołową znaną z Among Us.
+Załoga Kotów KNZ (1-3 graczy) musi stawić czoła falom wrogich Piratów (AI) na niebezpiecznej arenie kosmicznej. Gracze nie kontrolują tylko statku – oni są załogą. W widoku izometrycznym biegają po pokładzie, gasząc pożary, naprawiając zniszczone systemy (wykonując minigry), tworząc przedmioty leczące i desperacko próbując przetrwać.
+W każdej chwili gracz może przejąć kontrolę nad stanowiskiem Pilota, Strzelca lub Technika, przełączając się na taktyczny Widok Statku, aby manewrować, strzelać i zarządzać tarczami. Zwycięstwo wymaga idealnej koordynacji i szybkiego podejmowania decyzji, aby przetrwać atak nacierających na statek sił wroga.
+2. Informacje Ogólne (High-Level Concept)
+Nazwa Gry: Cyberpurr
+Gatunek: Kooperacyjna gra akcji / symulator statku kosmicznego (PvE)
+Platforma: PC (Steam)
+Silnik: Godot
+Styl Graficzny: Low Poly 3D
+Widok: Podwójny: Widok Statku (Zewnętrzny Izometryczny) / Widok Postaci (Wewnętrzny Izometryczny)
+Gracze: 1-3 Graczy (Solo / Co-op PvE)
+Model Sesji: Sesja Kooperacyjna (P2P)
+Szacowany Czas Sesji: 15-25 minut (na misję)
+Hak Grywalny (Hook): "Among Us spotyka FTL w dynamicznej, kooperacyjnej bitwie kosmicznej."
+3. Pętle Rozgrywki (Core Loops)
+Pętla Makro (Statek vs AI):
+Lokalizuj: Identyfikuj cele misji (wyświetlane na UI) oraz wrogów AI wchodzących w "Widoczność Pasywną" statku.
+Pozycjonuj: Manewruj statkiem (Pilot), aby ustawić Działka (prawe/lewe) w pozycji do strzału, jednocześnie ustawiając Bariery Tarcz (Technik) w kierunku największego zagrożenia.
+Atakuj: Niszcz wrogie jednostki (Strzelec), używając działek do przebijania barier i systemów.
+Reaguj: Unikaj asteroid i wrogiego ognia; manewruj taktycznie, zbierając po drodze "Skrzynki z Zaopatrzeniem".
+Pętla Mikro (Naprawa i Zasoby):
+Problem: Otrzymaj alert (np. "POŻAR W RDZENIU NAPĘDOWYM") na minimapie statku (pokój miga na czerwono).
+Działaj: Biegnij do pokoju (Widok Postaci).
+Rozwiąż: Ugaś pożar (1x Gaśnica z Korytarza) → Ukończ 3 minigry naprawcze.
+Wspieraj: Twórz zasoby (Strzykawki w Lazarecie, Energetyk z Kocimiętką w Kwaterach) przez minigry.
+Wróć do Stanowiska.
+Pętla Mikro (Odrodzenie Załoganta):
+Problem: Sojusznik ginie i upuszcza "Nieśmiertelnik".
+Działaj: Podnieś Nieśmiertelnik (zajmując 1 z 3 slotów ekwipunku).
+Rozwiąż: Zanieś Nieśmiertelnik do "Drukarki 3D" w Lazarecie i aktywuj ją.
+Reakcja: Drukarka rozpoczyna proces "drukowania" (45 sekund). Drukarka może przetwarzać tylko 1 Nieśmiertelnik naraz.
+Powrót: Sojusznik odradza się przy Drukarce i może wrócić do walki jako koto-robot.
+4. Kluczowe Mechaniki (Core Mechanics)
+4.1. Dwa Widoki Rozgrywki
+Gracz płynnie przełącza się między dwoma trybami widoku:
+Widok Postaci (Wewnętrzny Izometryczny Bliski):
+Kamera: Kamera izometryczna zawieszona z góry pod kątem, skupiona na postaci gracza. Pozwala na rotację kamery (np. Q/R) o 90 stopni, aby zajrzeć za ściany.
+Cel: Poruszanie się po statku, gaszenie pożarów, wykonywanie minigier (naprawy, tworzenie), transport Nieśmiertelników.
+Widok Statku (Zewnętrzny Izometryczny Daleki):
+Kamera: Kamera izometryczna zawieszona z góry (ok. 45°), skupiona na statku gracza. Automatycznie aktywowana po wejściu w interakcję ze stanowiskiem Pilota, Strzelca lub Technika (Tarcze).
+Cel: Sterowanie statkiem, celowanie z działek, zarządzanie kierunkiem barier.
+4.2. Arena Kosmiczna i Interakcje
+Układ (Arena Taktyczna): Misje toczą się na ograniczonej arenie w kształcie kwadratu z zaokrąglonymi rogami, wypełnionej statycznymi i ruchomymi przeszkodami (asteroidy, wraki statków). Przeszkody są gęsto rozmieszczone, tworząc korytarze i otwarte przestrzenie.
+Kolizje z Przeszkodami (Asteroidy, Wraki, Granice Mapy):
+Statek: Natychmiast zatrzymuje statek i zadaje 30 HP obrażeń Głównego HP statku.
+System: Pokój, który fizycznie zderzył się z przeszkodą, otrzymuje 50 HP obrażeń HP Systemu.
+Tarcze (Własne Bariery): Jeśli Pilot uderzy aktywną barierą (sterowaną przez gracza) w przeszkodę, bariera pochłania obrażenia, ale natychmiast pęka i przechodzi w 5-sekundowy "reset" (czas regeneracji).
+Widoczność Pasywna: Statek gracza ma wokół siebie stały, pasywny okrąg radaru (promień 30m). Wróg AI, który wejdzie w ten okrąg, staje się widoczny na minimapie.. 
+4.2.1. Zderzenie Statków (Taranowanie)
+Logika Systemowa: Zderzenie statku gracza z dużym statkiem AI (lub inną przeszkodą) przy wysokiej prędkości jest traktowane jako Taranowanie.
+Kara: Statek gracza (oraz obiekt, w który uderzył) otrzymuje natychmiastowe 150 HP obrażeń Głównego HP.
+Kolizje o Niskiej Prędkości: "Obcierki" przy niskiej prędkości zadają tylko 10 HP obrażeń Głównego HP.
+4.2.2. Power-upy (Skrzynki z Zaopatrzeniem)
+Losowo na mapie (wśród wraków) pojawiają się kolorowe skrzynki. Dotknięcie ich statkiem daje natychmiastowy, losowy bonus z puli:
+"Mała Naprawa Kadłuba": Regeneruje 50 HP Głównego HP Statku.
+"Naładowanie Tarcz": Regeneruje 25 HP HP Systemu Generatora Tarcz.
+4.3. Model Obrażeń i Napraw
+HP Statku (Główne): 1000 HP. Gdy spadnie do 0, misja kończy się porażką.
+HP Systemu: Każdy kluczowy system “pokój” (np. Tlen, Rdzeń Napędowy, Generator Tarcz) ma 100 HP. Jest to pula zdrowia danego modułu w pokoju.
+Cykl Zniszczenia i Naprawy:
+Zniszczenie: Gdy HP Systemu spada do 0, system przestaje działać.
+Pożar: W pokoju, w którym znajduje się system, wybucha pożar. Pożar nieugaszoony przez 60 sekund ma 30% szans na rozprzestrzenienie się do sąsiedniego pokoju.
+Gaszenie: Gracz musi wziąć jednorazową gaśnicę (ze ściany Korytarza, zajmuje 1 slot) i ugasić pożar (zużywając gaśnicę).
+Naprawa: Po ugaszeniu pożaru, gracz musi pomyślnie ukończyć 3 oddzielne minigry naprawcze (losowane z puli w Sekcji 5). Nie jest do tego wymagany żaden dodatkowy przedmiot.
+Aktywacja: Po ukończeniu 3 minigier, system zostaje naprawiony i odzyskuje 100 HP Systemu.
+4.3.1. Obrażenia Postaci (Gracza)
+HP Postaci (Baza): 100 HP.
+Źródła Obrażeń:
+Ogień: Stanie w aktywnym pożarze zadaje 10 HP/sek.
+Uduszenie: Gdy System Tlenu jest zniszczony i minął licznik awaryjny (2 minuty), zadaje 5 HP/sek.
+Kara za Minigrę: Porażka w minigrze naprawczej zadaje 25 HP (mały wybuch).
+Eksplozja Systemu: W momencie, gdy HP Systemu spada do 0, następuje mała eksplozja, która zadaje 40 HP wszystkim graczom w tym pokoju.
+Leczenie: Użycie "Strzykawki" (Spacja) leczy 50 HP postaci.
+4.4. Ekwipunek (Inventory System)
+Każdy gracz posiada 3 sloty ekwipunku.
+Sloty te mogą być zajęte przez przedmioty jednorazowe, takie jak:
+Gaśnica (zabierana ze ściany)
+Strzykawka (tworzona w Lazarecie, 1 użycie)
+Nieśmiertelnik (podniesiony po śmierci sojusznika)
+Energetyk z Kocimiętką (tworzony w Kwaterach, 1 użycie)
+Użycie przedmiotu (Spacja) zużywa go i zwalnia slot.
+Upuszczanie Przedmiotów: Gracz może upuścić przedmiot z aktywnego slotu (przycisk G). Upuszczony przedmiot leży na podłodze przez 60 sekund, zanim zniknie.
+5. Projekt Minigier (Pula Uniwersalna)
+Definiujemy pulę 3 uniwersalnych, szybkich minigier, które będą losowo przypisywane do zadań (Naprawy, Tworzenie, regeneracja tarcz).
+Minigra 1: "Sekwencja Przycisków" (Styl QTE)
+Opis: Na ekranie pojawia się seria 3-5 losowych przycisków (np. W, E, D, A). Gracz musi je wcisnąć w poprawnej kolejności w ciągu 5 sekund.
+Zastosowanie: Szybkie interakcje (np. Ekspres do Kawy).
+Minigra 2: "Łączenie Kabli" (Styl Among Us)
+Opis: Gracz widzi panel z 4 parami kolorowych punktów. Musi przeciągnąć myszką "kable", aby połączyć pasujące kolory. Limit czasu: 10 sekund.
+Zastosowanie: Naprawy techniczne (np. Naprawa Rdzenia Napędowego).
+Minigra 3: "Utrzymanie Wskaźnika" (Styl Rytmiczny)
+Opis: Poziomy pasek postępu (15 sekund) z poruszającym się suwakiem. W losowych miejscach pojawiają się 3 "zielone strefy". Gracz musi wciskać Spację tylko wtedy, gdy suwak znajduje się w zielonej strefie.
+Zastosowanie: Procesy ciągłe (np. Tworzenie Strzykawek, Drukowanie 3D, Przyspieszanie Regeneracji Tarcz).
+6. Postać Gracza
+Gracze nie mają klas ani profesji. Wszyscy są równi i mogą wykonywać wszystkie zadania.
+Na początku gry (w lobby) gracze mogą wybrać kolor swojego kombinezonu, aby ułatwić identyfikację wizualną.
+7. Układ Statku (Pomieszczenia i Plan Pokładu)
+7.1. Plan Pokładu (Propozycja)
+Dziób (Przód Statku): Sterownia (Mostek)
+Korytarz Główny (Łącznik 1)
+Sekcja Centralna (Śródokręcie): Zbrojownia (Lewa Burta), Zbrojownia (Prawa Burta), Rdzeń Tarcz
+Korytarz Tylny (Łącznik 2)
+Sekcja Wsparcia (Tył): Lazaret, System Podtrzymywania Życia (Tlen), Kwatery Załogi, Maszynownia (Rdzeń Napędowy)
+Rufa (Zewnętrzny Tył Statku): (Wizualne dysze silników).
+7.2. Pomieszczenia Funkcyjne (Interaktywne)
+Sterownia (Mostek):
+Stanowisko Pilota (1): Kontrola ruchu statku.
+Zbrojownia (Działka) - Lewa Burta (1):
+Stanowisko Strzelca (1): Kontrola działka na lewej burcie (Przegrzanie po 5 sekundach ognia, chłodzenie 3 sekundy).
+Minigra "Super-strzał" (1): Ładuje 1 pocisk 150 HP (ignoruje tarcze).
+Zbrojownia (Działka) - Prawa Burta (1):
+Stanowisko Strzelca (1): Jak wyżej.
+Minigra "Super-strzał" (1): Jak wyżej.
+Rdzeń Tarcz (Pokój Technika):
+Logika Systemu (Dwupoziomowa):
+Pokój (HP Systemu = 100 HP): Niszczony/Kolizje. Naprawiany standardowo (Gaśnica + 3 minigry). Zniszczenie pokoju wyłącza bariery.
+Bariery (HP Bariery = 50 HP każda): Niszczone przez zwykłe strzały. Regenerują się pasywnie (5 HP/sek) po 5 sekundach bez obrażeń.
+Konsole Emiterów (x3): Gracz w Widoku Statku steruje pozycją jednej z 3 barier. W pokoju znajdują się 3 stanowiska. Bycie w jednej pozwala zarządzać jedną z tarcz
+Minigra "Przyspiesz Regenerację" (x3): Gracz w Widoku Postaci może wykonać minigrę (np. Minigra 3), aby tymczasowo zwiększyć pasywną regenerację barier do 25 HP/sek.
+Lazaret:
+Stanowisko Chemiczne (x2): Minigra do tworzenia Strzykawek (leczą 50 HP).
+Drukarka 3D (x1): Stanowisko do odradzania graczy (cykl 45 sekund).
+7.3. Pomieszczenia Krytyczne (Pasywne/Zniszczalne)
+System Podtrzymywania Życia (Tlen):
+Po zniszczeniu, załoga ma 2 minuty (120 sekund) na naprawę, zanim zaczną tracić HP (5 HP/sek).
+Maszynownia (Rdzeń Napędowy):
+Zniszczenie unieruchamia statek (traci napęd przód/tył).
+Kwatery Załogi:
+Pasywne (może się palić i rozprzestrzeniać ogień).
+Ekspres do Kawy (x1): Minigra (10 sekund) tworzy Energetyk z Kocimiętką (daje +100% prędkości ruchu na 10 sekund).
+7.4. Inne
+Korytarze (Łączniki): Na ścianie każdego segmentu korytarza znajduje się 1 skrzynka z jednorazową Gaśnicą.
+8. Systemy Rozgrywki (Zasady i Balans)
+8.1. Śmierć i Odrodzenie (Drukarka 3D)
+Gdy HP gracza spadnie do 0, upuszcza "Nieśmiertelnik".
+Sojusznik musi zanieść Nieśmiertelnik do Drukarki 3D w Lazarecie.
+Warunek Awaryjny: Jeśli Lazaret jest zniszczone (HP Systemu = 0), Drukarka 3D nie działa. Należy najpierw naprawić Lazaret. Jeśli Lazaret zostanie zniszczone w trakcie drukowania, proces zostaje przerwany. Nieśmiertelnik nie jest tracony, ale musi zostać ponownie włożony do Drukarki po naprawieniu Lazaretu.
+Cykl drukowania: 45 sekund (może przetwarzać 1 Nieśmiertelnik naraz).
+Po cyklu, gracz odradza się przy Drukarce.
+8.2. Skalowanie Gry (Co-op 1-3 Graczy)
+Gra dynamicznie dostosowuje trudność w oparciu o liczbę graczy na statku:
+3 Graczy (Baza): Standardowa trudność (jak w Arkuszu Balansu).
+2 Graczy: Cooldowny rzemieślnicze -33% (do 20 sekund). Wrogowie AI mają 80% HP.
+1 Gracz (Solo): Cooldowny rzemieślnicze -66% (do 10 sekund). Wrogowie AI mają 60% HP. 3 minigry naprawcze zostają zredukowane do 2.
+8.3. Limity Zasobów (Cooldown)
+Każde stanowisko rzemieślnicze (Lazaret, Kwatery) ma globalny 30-sekundowy cooldown po pomyślnym stworzeniu przedmiotu (modyfikowany przez Sekcję 8.2).
+8.4. Ryzyko Porażki w Minigrach
+Porażka w minigrze niesie ze sobą kary:
+Minigra Naprawcza: Przerywa minigrę, zadaje graczowi 25 HP obrażeń.
+Minigra "Super-Strzału": Resetuje postęp ładowania do zera.
+9. Sterowanie (Controls Scheme)
+Akcja
+Klawisz (Widok Postaci)
+Klawisz (Widok Statku)
+Opis
+Ruch
+WASD
+WASD
+Porusza postacią / Steruje statkiem (obrót i ciąg).
+Interakcja
+E
+E
+Aktywuje stanowisko / minigrę. Przytrzymanie E opuszcza stanowisko.
+Użyj Przedmiotu
+Spacja
+Lewy Przycisk Myszy
+Używa przedmiotu (Gaśnica, Strzykawka, Energetyk) / Strzela z działka.
+Celowanie
+-
+Mysz
+Kieruje celownikiem działka / pozycją Tarczy.
+Rotacja Kamery
+Q / R
+-
+Obraca kamerę wewnętrzną o 90 stopni w lewo/prawo.
+Akcja Specjalna
+-
+Prawy Przycisk Myszy
+Aktywuje "Super-strzał" (Strzelec - jeśli naładowany).
+Ekwipunek 1
+1
+-
+Wybiera przedmiot ze slotu 1.
+Ekwipunek 2
+2
+-
+Wybiera przedmiot ze slotu 2.
+Ekwipunek 3
+3
+-
+Wybiera przedmiot ze slotu 3.
+Upuść Przedmiot
+G
+-
+Upuszcza przedmiot z aktywnego slotu ekwipunku.
+
+10. Interfejs Użytkownika (UI)
+10.1. Elementy Wspólne (Widoczne Zawsze)
+Minimapa Statku (Lewy Dolny Róg): Schematyczny widok statku z góry. Ikony sojuszników (kropki) i Alerty Systemowe (miganie na czerwono).
+Pasek HP Postaci (Prawy Dolny Róg): Pasek zdrowia (0-100 HP).
+Ekwipunek (Środek Dolny): Trzy (3) sloty pokazujące ikony przedmiotów. Aktywny slot podświetlony.
+Lista Załogi (Lewa Strona): Mały panel pokazujący status członków załogi (Ikona + Nickname + Kolor + Status: Żywy, Martwy, Drukowany).
+10.2. HUD - Widok Postaci (Wewnętrzny)
+Wskaźnik Interakcji: Kontekstowa ikona (np. "Naciśnij [E], aby użyć").
+Pasek Postępu Minigry: Pojawia się na środku ekranu, gdy minigra jest aktywna.
+Wskaźnik Tlenu: Duży licznik TLEN: 2:00 (po zniszczeniu systemu Tlenu).
+Winieta Obrażeń: Krawędzie ekranu pulsują na czerwono, gdy gracz odnosi obrażenia.
+10.3. HUD - Widok Statku (Zewnętrzny)
+Główne HP Statku (Góra, Środek): Duży, wyraźny pasek (0-1000 HP).
+Cel Misji (Prawy Górny Róg): (Np. "Zniszcz 3 Generatory Bazy", "Fale: 2/5").
+Minimapa Areny (Prawy Dolny Róg): Pokazuje pozycję, granice mapy, przeszkody i wrogów w zasięgu pasywnym (30m).
+Stan Systemów (Lewa Strona): Kolumna ikon (Tlen, Rdzeń Napędowy, Tarcze, Działka). Zielone (działa), Czerwone (zniszczone).
+UI Stanowiska (Kontekstowe, Dół):
+Pilot: Wskaźnik ciągu silników.
+Strzelec: Pasek przegrzania (0-5 sek), ikona ładowania "Super-Strzału". Celownik z przewidywaniem toru lotu.
+Technik: Trzy (3) wskaźniki pozycji barier i ich HP Bariery (0-50 HP). Wskaźnik HP Systemu Generatora (0-100 HP).
+11. Projekt Dźwięku (Audio Design)
+Alerty SI Statku (Głosowe):
+"ALARM! Wykryto pożar w [Nazwa Pokoju]!"
+"ALARM! System Podtrzymywania Życia wyłączony. Pozostało 2 minuty tlenu."
+"Ostrzeżenie, Generator Tarcz zniszczony."
+"Bariera dziobowa zniszczona! Regeneracja za 5 sekund."
+"Rdzeń Napędowy w stanie krytycznym."
+"Nowa fala wrogów nadlatuje!"
+Dźwięki UI i Środowiskowe:
+Skaner Pasywny: Ciche "pikanie" radaru, gdy wróg jest w zasięgu.
+Skaner (Porażka): Głośny, alarmowy dźwięk "WRR-ONG!".
+Drukarka 3D: Ciągły, mechaniczny dźwięk pracy.
+Energetyk: Dźwięk "siorbnięcia", przyspieszone kroki.
+12. Specyfikacja Techniczna i Tutorial
+Silnik: Godot
+Styl: Low Poly
+Sieć: P2P (Host-Klient), z wykorzystaniem GodotSteam do zarządzania lobby i połączeniami.
+Lobby: Lobby prywatne na kod (do 3 graczy) lub szybki matchmaking (Solo, Duo, Trio). Gracz wybiera kolor kombinezonu.
+Tutorial: Obowiązkowy, 3-minutowy tutorial solo (Poruszanie się, zmiana widoku, użycie gaśnicy, 1 cykl naprawczy z 3 minigrami, 1 cykl rzemieślniczy).
+13. Projekt Wrogów (AI)
+"Dron-Rój" (Mały):
+HP: 30 HP.
+Zachowanie: Atakuje w grupach (3-5).
+Ataki: "Ostrzał Zaporowy" (uderza w HP Bariery), "Manewr Kamikadze" (30 HP).
+"Myśliwiec Piracki" (Średni):
+HP: 100 HP. Tarcza (Bariera): 50 HP (regeneruje się).
+Zachowanie: Manewruje, używa osłon, wykonuje "Unik (Beczka)".
+"Fregata Rakietowa" (Duży):
+HP: 750 HP.
+Zachowanie: Trzyma dystans.
+Ataki: "Wrogi Super-Strzał" (ładuje 10 sek, ignoruje HP Bariery, uderza w HP Systemu), "Flary Obronne" (zasięg 25m, czas trwania 3 sek).
+14. Projekt Misji (Przykłady)
+Misja 1: "Obrona Przekaźnika" (Tryb Obrony/Hordy):
+Cel: Broń Przekaźnika KNZ przez 10 minut.
+Warunki Porażki:
+Zniszczenie statku gracza (Główne HP Statku = 0).
+Zniszczenie Przekaźnika.
+Wszyscy członkowie załogi są martwi jednocześnie.
+Misja 2: "Szturm na Bazę" (Tryb Szturmu):
+Cel: Zniszcz 3 "Generatory Bazy", a następnie "Stację-Bossa".
+Warunki Porażki:
+Zniszczenie statku gracza.
+Wszyscy członkowie załogi są martwi jednocześnie.
+15. Arkusz Balansu (Wartości Startowe v1.2)
+Poniższe tabele zbierają wszystkie kluczowe wartości liczbowe zdefiniowane w tym dokumencie, służąc jako punkt wyjścia do pierwszych testów (playtestów).
+15.1. Wartości Globalne i Skalowanie
+Zmienna
+Proponowana Wartość
+Komentarz Balansowy
+Liczba Graczy
+1-3
+Potwierdzone.
+Czas Sesji (Misji)
+15-25 min
+Potwierdzone.
+Sloty Ekwipunku
+3
+Kluczowe dla logistyki (Gaśnica, Przedmiot, Nieśmiertelnik).
+Czas Despawnu Przedmiotu
+60 sek
+Wystarczający czas na powrót po upuszczony przedmiot.
+Skalowanie (2 Graczy)
+Cooldowny -33% (do 20s), HP AI -20%
+Agresywne skalowanie, aby gra w duecie była dynamiczna.
+Skalowanie (1 Gracz)
+Cooldowny -66% (do 10s), HP AI -40%, Minigry x2
+Gracz solo musi być "superbohaterem", aby dać radę.
+
+15.2. Statek Gracza (Wartości Bazowe)
+Zmienna
+Proponowana Wartość
+Komentarz Balansowy
+Główne HP Statku
+1000 HP
+Wartość bazowa.
+HP Systemu (Każdy Moduł)
+100 HP
+Ujednolicona wartość. (Tlen, Napęd, Generator Tarcz, Działka, Lazaret, Kwatery).
+Widoczność Pasywna
+promień 30m
+Potwierdzone.
+
+15.3. Pętle Rozgrywki (Czasy i Wartości)
+Zmienna
+Proponowana Wartość
+Komentarz Balansowy
+Ilość Minigier Naprawczych
+3 (zredukowane do 2 w Solo)
+Potwierdzone. (Dotyczy teraz wszystkich systemów, w tym Tarcz).
+Cooldown Stanowisk Rzem.
+30 sek (skalowane 20s/10s)
+(Lazaret, Kwatery).
+Czas Minigry (Energetyk)
+10 sek
+Szybka akcja za szybki bonus.
+Czas Trwania (Energetyk)
+10 sek
+Symetryczny czas (10s tworzenia, 10s działania).
+Bonus Prędkości (Energetyk)
++100%
+Podwójna prędkość. Kluczowa do przenoszenia Nieśmiertelników.
+Czas Drukowania 3D
+45 sek
+Bardzo dotkliwa kara czasowa dla drużyny.
+Rozprzestrzenianie Pożaru
+60 sek
+Czas na reakcję, zanim ogień przeskoczy do sąsiedniego pokoju.
+
+15.4. Arena i Fizyka (Obrażenia od Kolizji)
+Zmienna
+Proponowana Wartość
+Komentarz Balansowy
+Taranowanie (Duża Prędkość)
+150 HP
+(15% Głównego HP). Bolesne, ale nie katastrofalne.
+Obcierka (Niska Prędkość)
+10 HP
+Kara za błąd pilota, ale do zignorowania.
+Kolizja z Przeszkodą (HP Statku)
+30 HP
+Kara za uderzenie w asteroidę musi być mniejsza niż taranowanie.
+Kolizja z Przeszkodą (HP Systemu)
+50 HP
+Uderzenie w asteroidę bokiem (np. w Zbrojownię) zdejmuje 50% HP Systemu.
+Reset Bariery po Kolizji
+5 sek
+Potwierdzone.
+
+15.5. Postać Gracza (HP i Obrażenia)
+Zmienna
+Proponowana Wartość
+Komentarz Balansowy
+HP Postaci (Baza)
+100 HP
+Standardowa wartość bazowa.
+Obrażenia od Ognia (DPS)
+10 HP / sek
+Zabija gracza w 10 sekund. Wymaga natychmiastowej reakcji.
+Obrażenia od Uduszenia (DPS)
+5 HP / sek
+Wolniejsze. Daje graczowi 20 sekund na dobiegnięcie do sprawnego pokoju.
+Obrażenia (Porażka w Minigrze)
+25 HP
+Bolesne, ale nie śmiertelne. Kara za brak skupienia.
+Obrażenia (Eksplozja Systemu)
+40 HP
+Poważne. Jeśli gracz ma mniej niż połowę HP, ta eksplozja go zabije.
+Leczenie (Strzykawka)
+50 HP
+Jedna strzykawka leczy 50% HP postaci.
+
+15.6. Walka i Systemy Statku
+Zmienna
+Proponowana Wartość
+Komentarz Balansowy
+Działko: Przegrzanie
+5 sek ognia ciągłego
+Nagradza krótkie, celne serie.
+Działko: Chłodzenie
+3 sek
+
+
+Działko: Obrażenia (Zwykły)
+10 HP
+Wartość bazowa. Uderza w HP Bariery lub Główne HP Statku.
+Działko: Obrażenia (Super)
+150 HP (Ignoruje Bariery)
+Potężny cios. Uderza w HP Systemu (150 HP) lub Główne HP Statku.
+Tarcze: HP Bariery (x3)
+50 HP (na barierę)
+Bariera wytrzyma 5 zwykłych strzałów Myśliwca AI.
+Tarcze: Pasywna Regeneracja
+5 HP / sek
+Pełna regeneracja w 10 sekund.
+Tarcze: Czas do Regeneracji
+5 sek
+Musi minąć 5 sekund bez otrzymywania obrażeń.
+Tarcze: Bonus Minigry
++20 HP / sek
+Zwiększa regenerację z 5 HP/s do 25 HP/s, dopóki gracz wykonuje minigrę.
+Tlen: Czas do Uduszenia
+2 minuty (120s)
+Potwierdzone.
+
+15.7. Wrogowie (AI)
+Zmienna
+Proponowana Wartość
+Komentarz Balansowy
+Dron-Rój (HP)
+30 HP
+3 zwykłe strzały gracza (3x10 HP) zniszczą drona.
+Dron-Rój (Obrażenia Ostrzału)
+1 HP (na HP Bariery)
+Chodzi o przytłoczenie tarcz (DPS).
+Dron-Rój (Obrażenia Kamikadze)
+30 HP
+Tyle samo co kolizja z asteroidą.
+Myśliwiec (HP)
+100 HP
+Wymaga 10 trafień.
+Myśliwiec (HP Tarczy/Bariery)
+50 HP
+Tarcza Myśliwca wytrzyma 5 strzałów gracza.
+Fregata (HP)
+750 HP
+Poważny mini-boss.
+Fregata (Atak Specjalny)
+"Wrogi Super-Strzał"
+Ładuje 10 sek, ignoruje HP Bariery, zadaje 100 HP obrażeń HP Systemu.
+Fregata (Obrona)
+"Flary Obronne"
+Zasięg 25m, czas trwania 3 sek (szum na HUD Widoku Statku).
+
+

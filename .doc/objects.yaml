@@ -1,0 +1,177 @@
+Player:
+  type: object
+  properties:
+    id:
+      type: string
+      description: Unique identifier for the player
+    name:
+      type: string
+      description: Name of the player
+    color:
+      type: string
+      description: Current color of the player
+    health:
+      type: integer
+      description: Current health points of the player
+      default: 3
+    inventory:
+      type: string
+      description: item in the player's inventory
+    walkSpeed:
+      type: number
+      description: Speed at which the player walks
+    runSpeed:
+      type: number
+      description: Speed at which the player runs
+    isAlive:
+      type: boolean
+      description: Indicates if the player is alive
+    oxygenLevel:
+      type: integer
+      description: Current oxygen level of the player
+
+Ship:
+  type: object
+  properties:
+    id:
+      type: string
+      description: Unique identifier for the ship
+    name:
+      type: string
+      description: Name of the ship
+    resources:
+      - fuel:
+          type: number
+          description: Amount of fuel available
+      - oxygen:
+          type: number
+          description: Amount of oxygen available
+      - power:
+          type: number
+          description: Amount of power available
+    health:
+      type: integer
+      description: Current health of the ship
+      default: 30
+    Speed:
+      type: number
+      description: Current speed of the ship
+    TypesOfRoomsOnShip:
+      type: array
+      items:
+        type: string
+      description: List of different types of rooms on the ship
+
+Room:
+  type: object
+  properties:
+    type:
+      type: string
+      description: Type of the room (e.g., med bay, engine room)
+    position:
+      type: array
+      items:
+        type: number
+      description: Position of the room (x, y)
+    health:
+      type: integer
+      description: Current health of the room
+      default: 5
+    isOnFire:
+      type: boolean
+      description: Indicates if the room is on fire
+    hasBreach:
+      type: boolean
+      description: Indicates if the room has a breach
+    isPowered:
+      type: boolean
+      description: Indicates if the room is powered
+    oxygenLevel:
+      type: integer
+      description: Current oxygen level in the room
+
+Items:
+  - repairKit:
+      type: item
+      properties:
+        durability:
+          type: integer
+          description: Max durability of the repair kit
+        usageCount:
+          type: integer
+          description: Number of times the repair kit has been used
+  - medPack:
+      type: item
+      properties:
+        durability:
+          type: integer
+          description: Max durability of the med pack
+        usageCount:
+          type: integer
+          description: Number of times the med pack has been used
+  - oxygenTank:
+      type: item
+      properties:
+        capacity:
+          type: integer
+          description: Maximum oxygen capacity of the tank
+        currentOxygen:
+          type: integer
+          description: Current oxygen level in the tank
+  - fireExtinguisher:
+      type: item
+      properties:
+        durability:
+          type: integer
+          description: Max durability of the fire extinguisher
+        usageCount:
+          type: integer
+          description: Number of times the fire extinguisher has been used
+  - energyDrink:
+      type: item
+      properties:
+        boostAmount:
+          type: integer
+          description: Amount of speed boost provided
+        duration:
+          type: integer
+          description: Duration of the speed boost in seconds
+  - filament:
+      type: item
+  - idCard:
+      type: item
+
+TypesOfRoomsOnShip:
+  - medBay :
+      contains:
+        - 3dmedicalPrinter :
+            - medPack
+            - oxygenTank
+            - deadPlayer
+            - energyDrink
+        - oxygenGenerator
+  - engineRoom :
+      contains:
+        - 3dprinter :
+            - repairKit
+            - fireExtinguisher
+        - powerGenerator
+  - bridge :
+      contains:
+        - navigationConsole
+        - communicationConsole
+        - statusMonitor
+  - securityRoom :
+      contains:
+        - 3dsecurityPrinter :
+            - lightAmmo
+            - heavyAmmo
+        - surveillanceSystem
+        - shieldControlPanel
+        - doorControlPanel
+  - turretRoom :
+      contains:
+        - turretControlConsole
+        - ammoStorage :
+            - lightAmmo
+            - heavyAmmo
