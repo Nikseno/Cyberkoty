@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dvuubumfnjdp3"
-path="res://.godot/imported/Tool_Chest_3.blend-b974d369d45e33273aa31012467f68c5.scn"
+valid=false
 
 [deps]
 
 source_file="res://assets/3d/Blend/Tool_Chest_3.blend"
-dest_files=["res://.godot/imported/Tool_Chest_3.blend-b974d369d45e33273aa31012467f68c5.scn"]
 
 [params]
 

@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dpqe2tdq2fnoe"
-path="res://.godot/imported/First_Aid_Kit_Wall_2.blend-e2df69440a1ff9262a4ecfaf71809517.scn"
+valid=false
 
 [deps]
 
 source_file="res://assets/3d/Blend/First_Aid_Kit_Wall_2.blend"
-dest_files=["res://.godot/imported/First_Aid_Kit_Wall_2.blend-e2df69440a1ff9262a4ecfaf71809517.scn"]
 
 [params]
 
