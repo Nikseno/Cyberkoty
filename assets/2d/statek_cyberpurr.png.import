@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwpsh7a6t758n"
-path.s3tc="res://.godot/imported/Gradient_Color_T.jpg-e194c05f2d75f70905a79b9335d9da57.s3tc.ctex"
+uid="uid://djtcrfm1qi85w"
+path.s3tc="res://.godot/imported/statek_cyberpurr.png-5da22d4da348714506cd635c3ef0c663.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/3d/Textures/Gradient_Color_T.jpg"
-dest_files=["res://.godot/imported/Gradient_Color_T.jpg-e194c05f2d75f70905a79b9335d9da57.s3tc.ctex"]
+source_file="res://assets/2d/statek_cyberpurr.png"
+dest_files=["res://.godot/imported/statek_cyberpurr.png-5da22d4da348714506cd635c3ef0c663.s3tc.ctex"]
 
 [params]
 

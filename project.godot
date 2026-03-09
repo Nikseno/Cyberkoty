@@ -19,6 +19,10 @@ config/icon="res://assets/2d/icon.svg"
 
 NetworkHandler="*res://scripts/networkHandler.gd"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 forward={

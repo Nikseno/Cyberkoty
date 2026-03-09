@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://c634rttgjpj64"]
+
+[ext_resource type="Texture2D" uid="uid://djtcrfm1qi85w" path="res://assets/2d/statek_cyberpurr.png" id="1_k1o85"]
+[ext_resource type="PackedScene" uid="uid://clwb3m7tlyemh" path="res://player/Player.tscn" id="2_3bvk6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpxen"]
+albedo_texture = ExtResource("1_k1o85")
+
+[sub_resource type="QuadMesh" id="QuadMesh_234an"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_k1o85"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_k1o85"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3bvk6"]
+
+[node name="Blockout" type="Node2D"]
+
+[node name="plan" type="MeshInstance3D" parent="."]
+transform = Transform3D(77.53004, 0, 0, 0, -6.3603625e-06, 0.90690285, 0, -145.50813, -3.9641982e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_qpxen")
+mesh = SubResource("QuadMesh_234an")
+
+[node name="plan2" type="MeshInstance3D" parent="."]
+transform = Transform3D(77.53004, 0, 0, 0, -6.3603625e-06, 0.90690285, 0, -145.50813, -3.9641982e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_qpxen")
+mesh = SubResource("QuadMesh_234an")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_3bvk6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.949049, 1.3002453, 23.955582)
+
+[node name="P_Medbay" type="MeshInstance3D" parent="."]
+transform = Transform3D(17.301908, 0, 0, 0, 0.30781353, 0, 0, 0, 15.844865, -8.309119, 0.034611106, -7.1203055)
+mesh = SubResource("BoxMesh_k1o85")
+
+[node name="P_Tarcze" type="MeshInstance3D" parent="."]
+transform = Transform3D(17.495674, 0, 0, 0, 0.30781353, 0, 0, 0, 14.86792, -4.4027524, 0.034611106, 12.415569)
+mesh = SubResource("BoxMesh_k1o85")
+
+[node name="P_Silniki" type="MeshInstance3D" parent="."]
+transform = Transform3D(29.232012, 0, 0, 0, 0.30781353, 0, 0, 0, 15.827746, -6.1987014, 0.034611106, 27.773876)
+mesh = SubResource("BoxMesh_k1o85")
+
+[node name="Silnik_1" type="MeshInstance3D" parent="P_Silniki"]
+transform = Transform3D(0.37711874, 0, 0, 0, -1.228764e-06, -1.3120958, 0, 0.5466917, -1.1153951e-09, 0.19320238, -0.11244181, 0.7789798)
+mesh = SubResource("PrismMesh_k1o85")
+skeleton = NodePath("../..")
+
+[node name="Silnik_2" type="MeshInstance3D" parent="P_Silniki"]
+transform = Transform3D(0.37711874, 0, 0, 0, -1.2287641e-06, -1.3120959, 0, 0.5466918, -1.1153952e-09, -0.18859644, -0.11244182, 0.7789798)
+mesh = SubResource("PrismMesh_k1o85")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="P_Silniki"]
+transform = Transform3D(-0.03657986, 0, 0, 0, 12.372167, 0, 0, 0, 1.0000015, -0.4798712, 6.704956, 0.0005555153)
+mesh = SubResource("BoxMesh_3bvk6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="P_Silniki"]
+transform = Transform3D(-0.03657986, 0, 0, 0, 12.3721695, 0, 0, 0, 1.0000019, 0.4848162, 6.704956, 0.0005555153)
+mesh = SubResource("BoxMesh_3bvk6")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="P_Silniki"]
+transform = Transform3D(1.5989564e-09, 1.0816091e-06, 1.0000014, 0, 12.37217, -8.742294e-08, 0.036579877, -4.727865e-14, -4.371147e-08, 0.003039062, 6.704956, 0.49280834)
+mesh = SubResource("BoxMesh_3bvk6")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="P_Silniki"]
+transform = Transform3D(1.5989564e-09, 1.0816091e-06, 1.0000014, 0, 12.372171, -8.742295e-08, 0.036579877, -4.7278655e-14, -4.3711474e-08, 0.003039062, 6.704956, -0.48234403)
+mesh = SubResource("BoxMesh_3bvk6")
+
+[node name="P_Pokoje_zalogi" type="MeshInstance3D" parent="."]
+transform = Transform3D(20.325953, 0, 0, 0, 0.30781353, 0, 0, 0, 4.4994693, -6.253875, 0.034611106, -27.475737)
+mesh = SubResource("BoxMesh_k1o85")
+
+[node name="P_Pokoj_1" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.629472, 0, 0, 0, 0.30781353, 0, 0, 0, 6.0885653, 1.6537917, 0.034611106, -22.180311)
+mesh = SubResource("BoxMesh_k1o85")
+
+[node name="P_Oxygen" type="MeshInstance3D" parent="."]
+transform = Transform3D(20.445133, 0, 0, 0, 0.30781353, 0, 0, 0, 19.221169, -6.49172, 0.034611106, -43.262577)
+mesh = SubResource("BoxMesh_k1o85")
+
+[node name="P_Mostek" type="MeshInstance3D" parent="."]
+transform = Transform3D(17.487007, 0, 0, 0, 0.30781353, 0, 0, 0, 12.94602, -6.49172, 0.034611106, -59.389503)
+mesh = SubResource("BoxMesh_k1o85")
+
+[node name="P_Dzialka_1" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.8447766, 0, 0, 0, 0.30781353, 0, 0, 0, 11.857708, 10.686346, 0.034611106, -24.564754)
+mesh = SubResource("BoxMesh_k1o85")
+
+[node name="P_Korytarz_1" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.345269, 0, 0, 0, 0.30781353, 0, 0, 0, 14.86792, -14.946381, 0.034611106, 12.415569)
+mesh = SubResource("BoxMesh_k1o85")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="P_Korytarz_1"]
+transform = Transform3D(-0.03657986, 0, 0, 0, 12.372167, 0, 0, 0, 1.0000015, -0.4798712, 6.704956, 0.0005555153)
+mesh = SubResource("BoxMesh_3bvk6")
+
+[node name="P_Korytarz_2" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.345269, 0, 0, 0, 0.30781353, 0, 0, 0, 19.802568, 2.1765604, 0.034611106, -4.8496013)
+mesh = SubResource("BoxMesh_k1o85")
+
+[node name="P_Korytarz_3" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.345269, 0, 0, 0, 0.30781353, 0, 0, 0, 19.333237, 6.0854006, 0.034611106, -24.510405)
+mesh = SubResource("BoxMesh_k1o85")
+
+[node name="P_Korytarz_4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.8993775e-07, 0, 20.582472, 0, 0.30781353, 0, -4.345269, 0, -8.996885e-07, -6.263988, 0.034611106, -17.067585)
+mesh = SubResource("BoxMesh_k1o85")
+
+[node name="P_Korytarz_5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.8993775e-07, 0, 17.159317, 0, 0.30781353, 0, -4.345269, 0, -7.5005755e-07, -8.388501, 0.034611106, 2.7806597)
+mesh = SubResource("BoxMesh_k1o85")
