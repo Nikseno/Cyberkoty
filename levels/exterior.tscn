@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://du1rw88jmkphn"]
+
+[ext_resource type="Script" uid="uid://dwhn2tu8oubut" path="res://exterior.gd" id="1_acgob"]
+[ext_resource type="PackedScene" uid="uid://c2aduixucw7pb" path="res://scenes/space_ship.tscn" id="2_aebon"]
+[ext_resource type="PackedScene" uid="uid://dmpjevqc5yk8s" path="res://assets/3d/SpaceShip/Imperial.gltf" id="3_x5j2k"]
+
+[node name="Exterior" type="Node3D"]
+script = ExtResource("1_acgob")
+
+[node name="SpaceShip" parent="." instance=ExtResource("2_aebon")]
+transform = Transform3D(0.9996383, 0, 0.02689228, 0, 1, 0, -0.02689228, 0, 0.9996383, 0, 0, 0)
+
+[node name="Imperial" parent="." instance=ExtResource("3_x5j2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6230632, -17.565254, 31.490007)
+
+[node name="Imperial2" parent="." instance=ExtResource("3_x5j2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6230632, -17.565254, 69.99952)
+
+[node name="Imperial3" parent="." instance=ExtResource("3_x5j2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6230632, -17.565254, 155.43658)
+
+[node name="Imperial4" parent="." instance=ExtResource("3_x5j2k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6230632, -17.565254, 327.8914)

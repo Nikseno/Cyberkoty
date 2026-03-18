@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dem0d63aohj41"]
+
+[ext_resource type="Texture2D" path="res://scenes/menus/assets/godot_engine_logo/logo_vertical_color_dark.png" id="1_4qvrg"]
+
+[node name="Opening"]
+images = Array[Texture2D]([ExtResource("1_4qvrg")])
+
+[node name="ImagesContainer" parent="." index="1"]
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64

@@ -10,6 +10,7 @@ signal game_exited
 ## Defines the path to the game scene. Hides the play button if empty.
 ## Will attempt to read from AppConfig if left empty.
 @export_file("*.tscn") var game_scene_path : String
+@export_file("*.tscn") var demo_scene_path : String
 ## The scene to open when a player clicks the 'Options' button.
 @export var options_packed_scene : PackedScene
 ## The scene to open when a player clicks the 'Credits' button.
@@ -26,6 +27,7 @@ var sub_menu : Control
 @onready var menu_container = %MenuContainer
 @onready var menu_buttons_box_container = %MenuButtonsBoxContainer
 @onready var new_game_button = %NewGameButton
+@onready var demo_button = %DemoButton
 @onready var options_button = %OptionsButton
 @onready var credits_button = %CreditsButton
 @onready var exit_button = %ExitButton
@@ -42,6 +44,21 @@ func load_game_scene() -> void:
 		game_started.emit()
 	else:
 		SceneLoader.load_scene(get_game_scene_path())
+
+func new_demo() -> void:
+	load_demo_scene()
+	
+func get_demo_scene_path() -> String:
+	if demo_scene_path.is_empty():
+		return AppConfig.demo_scene_path
+	return demo_scene_path
+
+func load_demo_scene() -> void:
+	if signal_game_start:
+		SceneLoader.load_scene(get_demo_scene_path(), true)
+		game_started.emit()
+	else:
+		SceneLoader.load_scene(get_demo_scene_path())
 
 func new_game() -> void:
 	load_game_scene()
@@ -125,3 +142,7 @@ func _on_exit_button_pressed() -> void:
 
 func _on_exit_confirmation_confirmed():
 	exit_game()
+
+
+func _on_demo_pressed() -> void:
+	new_demo()
