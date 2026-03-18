@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://1nia40qoprqb"]
+
+[ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_menus_template/base/nodes/menus/main_menu/main_menu.tscn" id="1_41nvw"]
+[ext_resource type="Script" uid="uid://c2koskwyq4505" path="res://scenes/menus/scenes/menus/main_menu/main_menu.gd" id="2_lgobh"]
+[ext_resource type="PackedScene" uid="uid://d2jttcv4vdab4" path="res://scenes/menus/scenes/windows/main_menu_options_window.tscn" id="3_sn8a2"]
+[ext_resource type="PackedScene" uid="uid://kkli16y11r0v" path="res://scenes/menus/scenes/windows/main_menu_credits_window.tscn" id="4_pxod2"]
+
+[node name="MainMenu" instance=ExtResource("1_41nvw")]
+script = ExtResource("2_lgobh")
+options_packed_scene = ExtResource("3_sn8a2")
+credits_packed_scene = ExtResource("4_pxod2")
+
+[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
+text = "CYBERPURR
+"
