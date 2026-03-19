@@ -25,3 +25,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6230632, -17.565254, 155.4
 
 [node name="Imperial4" parent="." instance=ExtResource("3_x5j2k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6230632, -17.565254, 327.8914)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
