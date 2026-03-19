@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://nlgjty2ukjn0"]
+
+[ext_resource type="Script" uid="uid://d1o88c6lkr5sh" path="res://scripts/asteroid.gd" id="1_akfqu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p0ukn"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_u87q6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0ukn"]
+albedo_texture = SubResource("ImageTexture_u87q6")
+
+[sub_resource type="BoxMesh" id="BoxMesh_u87q6"]
+material = SubResource("StandardMaterial3D_p0ukn")
+
+[node name="Asteroid" type="RigidBody3D"]
+axis_lock_linear_y = true
+axis_lock_angular_y = true
+mass = 1000.0
+gravity_scale = 0.0
+inertia = Vector3(10000, 10000, 10000)
+linear_velocity = Vector3(0, 0, 10)
+script = ExtResource("1_akfqu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+shape = SubResource("SphereShape3D_p0ukn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+mesh = SubResource("BoxMesh_u87q6")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(5.12132, -0.8786797, 2.9999998, 2.9999998, 2.9999998, -4.2426405, -0.8786797, 5.12132, 2.9999998, 0, 0, 0)
+mesh = SubResource("BoxMesh_u87q6")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

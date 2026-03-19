@@ -1,5 +1,5 @@
 extends RigidBody3D
-
+class_name space_ship
 @export var max_speed = 300.0#50.0
 @export var acceleration = 1.2#0.6
 @export var pitch_speed = 1.5
@@ -52,6 +52,7 @@ func get_input(delta):
 
 func _physics_process(delta):
 	handle_input()
+	position.y = 0
 
 func handle_input():
 	var forward_dir = -get_node("Imperial2").transform.basis.z  # forward in Godot
