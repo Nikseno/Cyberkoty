@@ -50,4 +50,4 @@ func _spawn_wave():
 
 
 func _on_timer_timeout() -> void:
-	_spawn_wave() # Replace with function body.
+	pass#_spawn_wave() # Replace with function body.

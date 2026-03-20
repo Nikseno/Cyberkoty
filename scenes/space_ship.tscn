@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://c2aduixucw7pb"]
+[gd_scene load_steps=9 format=4 uid="uid://c2aduixucw7pb"]
 
 [ext_resource type="Script" uid="uid://bw71epnl35iwj" path="res://scripts/space_ship.gd" id="1_bt5oy"]
 [ext_resource type="Texture2D" uid="uid://bdn8k5fxv7l32" path="res://assets/3d/SpaceShip/Imperial_Imperial_Orange.png" id="1_dp8cb"]
 [ext_resource type="Script" uid="uid://d16v5enlxo5en" path="res://scripts/camera.gd" id="3_jy7xo"]
+[ext_resource type="PackedScene" uid="uid://dqokqchlbxty4" path="res://scenes/dzialko.tscn" id="4_n0g6o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6s2m"]
 resource_name = "Texture"
@@ -69,3 +70,5 @@ shape = SubResource("CapsuleShape3D_dp8cb")
 [node name="Camera3D" type="Camera3D" parent="."]
 current = true
 script = ExtResource("3_jy7xo")
+
+[node name="dzialko" parent="." instance=ExtResource("4_n0g6o")]
