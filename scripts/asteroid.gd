@@ -21,7 +21,6 @@ func _physics_process(delta: float) -> void:
 		var z = 255 - c
 #		$MeshInstance3D.mesh.material.albedo_color = Color(0.015, 0.369, 0.335, 1.0)
 		#$MeshInstance3D2.mesh.material.albedo_color = Color(c,c,c,z)
-		print(c)
 	position.y = 0
 
 func _on_timer_timeout() -> void:

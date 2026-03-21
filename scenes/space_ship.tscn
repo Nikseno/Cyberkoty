@@ -72,3 +72,7 @@ current = true
 script = ExtResource("3_jy7xo")
 
 [node name="dzialko" parent="." instance=ExtResource("4_n0g6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="dzialko2" parent="." instance=ExtResource("4_n0g6o")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

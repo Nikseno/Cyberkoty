@@ -1,6 +1,6 @@
 extends Area3D
 
-var speed = 20
+var speed = 400
 var velocity = Vector3.ZERO
 
 func _ready():

@@ -16,6 +16,8 @@ var roll_input = 0.0
 var yaw_input = 0.0
 
 func _ready():
+	get_node("dzialko").occupied = true
+	get_node("dzialko2").other = true
 	pass
 	
 func get_input(delta):
@@ -23,6 +25,7 @@ func get_input(delta):
 		forward_speed = lerp(forward_speed, max_speed, acceleration * delta)
 	if Input.is_action_pressed("back"):
 		forward_speed = lerp(forward_speed, 0.0, acceleration * delta)
+
 	#pitch_input = lerp(pitch_input, Input.get_axis("pitch_down", "pitch_up"), input_response * delta)
 	roll_input = lerp(roll_input, Input.get_axis("right", "left"), input_response * delta)
 #	yaw_input = lerp(yaw_input, Input.get_axis("yaw_right", "yaw_left"), input_response * delta)
@@ -55,8 +58,15 @@ func _physics_process(delta):
 	position.y = 0
 
 func handle_input():
-	var forward_dir = -get_node("Imperial2").transform.basis.z  # forward in Godot
-
+	var forward_dir = -transform.basis.z 
+	if Input.is_action_just_pressed("dzialko1"):
+		print("ss_1")
+		get_node("dzialko").occupied = true
+		get_node("dzialko2").occupied = false
+	if Input.is_action_just_pressed("dzialko2"):
+		print("ss_2")
+		get_node("dzialko").occupied = false
+		get_node("dzialko2").occupied = true
 	# 🚀 Forward / Backward thrust
 	if Input.is_action_pressed("forward"):
 		apply_central_impulse(forward_dir * thrust_force)
@@ -66,9 +76,15 @@ func handle_input():
 
 	# 🔄 Left / Right rotation (yaw)
 	if Input.is_action_pressed("right"):
-		get_node("Imperial2").rotation_degrees.y = get_node("Imperial2").rotation_degrees.y + 2
-		get_node("CollisionShape3D").rotation_degrees.y = get_node("CollisionShape3D").rotation_degrees.y + 5
+		rotation_degrees.y = rotation_degrees.y + 2
+		#get_node("Imperial2").rotation_degrees.y = get_node("Imperial2").rotation_degrees.y + 2
+		#get_node("CollisionShape3D").rotation_degrees.y = get_node("CollisionShape3D").rotation_degrees.y + 2
+		#get_node("dzialko").rotation_degrees.y = get_node("dzialko").rotation_degrees.y + 2
+		#get_node("dzialko2").rotation_degrees.y = get_node("dzialko2").rotation_degrees.y + 2
 	if Input.is_action_pressed("left"):
-		get_node("Imperial2").rotation_degrees.y = get_node("Imperial2").rotation_degrees.y - 2
-		get_node("CollisionShape3D").rotation_degrees.y = get_node("CollisionShape3D").rotation_degrees.y - 5
+		rotation_degrees.y = rotation_degrees.y - 2
+		#get_node("Imperial2").rotation_degrees.y = get_node("Imperial2").rotation_degrees.y - 2
+		#get_node("CollisionShape3D").rotation_degrees.y = get_node("CollisionShape3D").rotation_degrees.y - 2
+		#get_node("dzialko").rotation_degrees.y = get_node("dzialko").rotation_degrees.y - 2
+		#get_node("dzialko2").rotation_degrees.y = get_node("dzialko2").rotation_degrees.y - 2
 	#move_and_slide()
