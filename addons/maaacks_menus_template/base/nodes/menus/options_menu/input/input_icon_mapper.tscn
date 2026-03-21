@@ -1,0 +1,498 @@
+[gd_scene load_steps=158 format=3 uid="uid://qoexj4ptqt8a"]
+
+[ext_resource type="Script" uid="uid://cqigj1uumknrp" path="res://addons/maaacks_menus_template/base/nodes/menus/options_menu/input/input_icon_mapper.gd" id="1_msrpt"]
+[ext_resource type="Texture2D" uid="uid://cay0x1lcl4flt" path="res://scenes/menus/assets/icons/Generic/Default/generic_button.png" id="2_rmob6"]
+[ext_resource type="Texture2D" uid="uid://dkxvf2ly0ne2f" path="res://scenes/menus/assets/icons/Generic/Default/generic_button_circle.png" id="3_3shjr"]
+[ext_resource type="Texture2D" uid="uid://b6tti1i3d0ha8" path="res://scenes/menus/assets/icons/Generic/Default/generic_button_circle_fill.png" id="4_heka5"]
+[ext_resource type="Texture2D" uid="uid://cab0jdsq3ytqp" path="res://scenes/menus/assets/icons/Generic/Default/generic_button_finger.png" id="5_3xhe0"]
+[ext_resource type="Texture2D" uid="uid://dn41f2kj4a23n" path="res://scenes/menus/assets/icons/Generic/Default/generic_button_finger_pressed.png" id="6_nv4sl"]
+[ext_resource type="Texture2D" uid="uid://xs75lyc8wa73" path="res://scenes/menus/assets/icons/Generic/Default/generic_button_pressed.png" id="7_qoyuh"]
+[ext_resource type="Texture2D" uid="uid://qwid6mkqbkxh" path="res://scenes/menus/assets/icons/Generic/Default/generic_button_square.png" id="8_dp5pp"]
+[ext_resource type="Texture2D" uid="uid://dylcj2mxryw6x" path="res://scenes/menus/assets/icons/Generic/Default/generic_button_square_fill.png" id="9_3g245"]
+[ext_resource type="Texture2D" uid="uid://b42m7kfrmyo0a" path="res://scenes/menus/assets/icons/Generic/Default/generic_button_trigger_a.png" id="10_jk1rk"]
+[ext_resource type="Texture2D" uid="uid://ctok43mkkm5an" path="res://scenes/menus/assets/icons/Generic/Default/generic_button_trigger_a_fill.png" id="11_j4r3x"]
+[ext_resource type="Texture2D" uid="uid://dbm1la8fpff2h" path="res://scenes/menus/assets/icons/Generic/Default/generic_button_trigger_b.png" id="12_syt1y"]
+[ext_resource type="Texture2D" uid="uid://bwylyh7x8fctx" path="res://scenes/menus/assets/icons/Generic/Default/generic_button_trigger_b_fill.png" id="13_6fv74"]
+[ext_resource type="Texture2D" uid="uid://js3fg4xgac7h" path="res://scenes/menus/assets/icons/Generic/Default/generic_button_trigger_c.png" id="14_ml7xr"]
+[ext_resource type="Texture2D" uid="uid://cm5wlmvbhknbe" path="res://scenes/menus/assets/icons/Generic/Default/generic_button_trigger_c_fill.png" id="15_7nj8s"]
+[ext_resource type="Texture2D" uid="uid://jb3w7yuuefmm" path="res://scenes/menus/assets/icons/Generic/Default/generic_joystick.png" id="16_n26sl"]
+[ext_resource type="Texture2D" uid="uid://doryhq6lag6of" path="res://scenes/menus/assets/icons/Generic/Default/generic_joystick_horizontal.png" id="17_yb68n"]
+[ext_resource type="Texture2D" uid="uid://co7n2blbpjqkk" path="res://scenes/menus/assets/icons/Generic/Default/generic_joystick_left.png" id="18_guyjh"]
+[ext_resource type="Texture2D" uid="uid://bymyqc2yti3nk" path="res://scenes/menus/assets/icons/Generic/Default/generic_joystick_red.png" id="19_4emaa"]
+[ext_resource type="Texture2D" uid="uid://dlq0i0tjkolvp" path="res://scenes/menus/assets/icons/Generic/Default/generic_joystick_red_horizontal.png" id="20_c58e4"]
+[ext_resource type="Texture2D" uid="uid://vq7a8gp1ym3d" path="res://scenes/menus/assets/icons/Generic/Default/generic_joystick_red_left.png" id="21_eg7gu"]
+[ext_resource type="Texture2D" uid="uid://dt5coq08p2afs" path="res://scenes/menus/assets/icons/Generic/Default/generic_joystick_red_right.png" id="22_4fary"]
+[ext_resource type="Texture2D" uid="uid://cg6udgwa14wvt" path="res://scenes/menus/assets/icons/Generic/Default/generic_joystick_right.png" id="23_xst25"]
+[ext_resource type="Texture2D" uid="uid://b14ofwc8w617g" path="res://scenes/menus/assets/icons/Generic/Default/generic_stick.png" id="24_gscn4"]
+[ext_resource type="Texture2D" uid="uid://dxnh3hqk4vr5w" path="res://scenes/menus/assets/icons/Generic/Default/generic_stick_down.png" id="25_fcxvh"]
+[ext_resource type="Texture2D" uid="uid://dggbj0xmroa84" path="res://scenes/menus/assets/icons/Generic/Default/generic_stick_horizontal.png" id="26_jjijd"]
+[ext_resource type="Texture2D" uid="uid://bfi4654qf6g1u" path="res://scenes/menus/assets/icons/Generic/Default/generic_stick_left.png" id="27_50yv8"]
+[ext_resource type="Texture2D" uid="uid://bai6d14uy8dfs" path="res://scenes/menus/assets/icons/Generic/Default/generic_stick_press.png" id="28_nyrbr"]
+[ext_resource type="Texture2D" uid="uid://cbtgybwox6xk1" path="res://scenes/menus/assets/icons/Generic/Default/generic_stick_right.png" id="29_2hiw2"]
+[ext_resource type="Texture2D" uid="uid://dcerk388sud1o" path="res://scenes/menus/assets/icons/Generic/Default/generic_stick_side.png" id="30_lwlqf"]
+[ext_resource type="Texture2D" uid="uid://owgehe76nux1" path="res://scenes/menus/assets/icons/Generic/Default/generic_stick_up.png" id="31_8xmek"]
+[ext_resource type="Texture2D" uid="uid://bnkukit47k4hk" path="res://scenes/menus/assets/icons/Generic/Default/generic_stick_vertical.png" id="32_skmm7"]
+[ext_resource type="Texture2D" uid="uid://dcbvux52qroil" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard.png" id="33_wroro"]
+[ext_resource type="Texture2D" uid="uid://cnjw1f8b4blcf" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_0.png" id="34_7em1m"]
+[ext_resource type="Texture2D" uid="uid://cb0fkhyv3lpnf" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_1.png" id="35_pb8sn"]
+[ext_resource type="Texture2D" uid="uid://dg2yfsukdoj4r" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_2.png" id="36_ra38d"]
+[ext_resource type="Texture2D" uid="uid://bpfphp4r2yb4f" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_3.png" id="37_jqqp6"]
+[ext_resource type="Texture2D" uid="uid://cep2n7ltcerce" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_4.png" id="38_anfjc"]
+[ext_resource type="Texture2D" uid="uid://bxt50hp3sxavi" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_5.png" id="39_1fml8"]
+[ext_resource type="Texture2D" uid="uid://coytpkcqbed1e" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_6.png" id="40_xfrfd"]
+[ext_resource type="Texture2D" uid="uid://6132nxs4p08l" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_7.png" id="41_dywii"]
+[ext_resource type="Texture2D" uid="uid://b68y6nsth4an1" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_8.png" id="42_oaf71"]
+[ext_resource type="Texture2D" uid="uid://ct05g228nhn8e" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_9.png" id="43_5nvd7"]
+[ext_resource type="Texture2D" uid="uid://w8muwmjvgbqr" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_a.png" id="44_uj267"]
+[ext_resource type="Texture2D" uid="uid://cje5etnjt3np8" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_alt.png" id="45_rvpst"]
+[ext_resource type="Texture2D" uid="uid://blovafkna0y7g" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_any.png" id="46_qs56f"]
+[ext_resource type="Texture2D" uid="uid://c5jkv81i364jq" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_apostrophe.png" id="47_qa21p"]
+[ext_resource type="Texture2D" uid="uid://b2o8pcty804b5" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrow_down.png" id="48_30kod"]
+[ext_resource type="Texture2D" uid="uid://cpfktgplkjqgs" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrow_left.png" id="49_x6nuk"]
+[ext_resource type="Texture2D" uid="uid://dpn1g5v6kthxp" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrow_right.png" id="50_wr4wj"]
+[ext_resource type="Texture2D" uid="uid://y3374blrwg1i" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrow_up.png" id="51_owx1w"]
+[ext_resource type="Texture2D" uid="uid://cf8xv2ks8yl00" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows.png" id="52_2mqfx"]
+[ext_resource type="Texture2D" uid="uid://d2cjb8bgkgjjd" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_all.png" id="53_pyh1g"]
+[ext_resource type="Texture2D" uid="uid://bp07xyf1e43rk" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_down.png" id="54_kjyhb"]
+[ext_resource type="Texture2D" uid="uid://dpybia0pvc5kc" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_horizontal.png" id="55_femw7"]
+[ext_resource type="Texture2D" uid="uid://dm0i4ucs1xuhy" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_left.png" id="56_e783t"]
+[ext_resource type="Texture2D" uid="uid://dj1gslwu15nyt" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_none.png" id="57_4dbnh"]
+[ext_resource type="Texture2D" uid="uid://bavwtpl8ofq00" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_right.png" id="58_ck2y7"]
+[ext_resource type="Texture2D" uid="uid://dibqky1wdi8a5" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_up.png" id="59_7ncd5"]
+[ext_resource type="Texture2D" uid="uid://b8elvyexi42im" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_vertical.png" id="60_0fyvm"]
+[ext_resource type="Texture2D" uid="uid://dupdh4l8owboe" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_asterisk.png" id="61_f22gc"]
+[ext_resource type="Texture2D" uid="uid://dkx3113ywtify" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_b.png" id="62_ilibp"]
+[ext_resource type="Texture2D" uid="uid://bbdwki8kqonh3" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_backspace.png" id="63_tokbn"]
+[ext_resource type="Texture2D" uid="uid://bnpqgk386bfox" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_backspace_icon.png" id="64_546o6"]
+[ext_resource type="Texture2D" uid="uid://dunlu7d2dntym" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_backspace_icon_alternative.png" id="65_j8a2t"]
+[ext_resource type="Texture2D" uid="uid://bv8k265uely8t" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_bracket_close.png" id="66_pv5c4"]
+[ext_resource type="Texture2D" uid="uid://dffbsr5oqxiv6" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_bracket_greater.png" id="67_mnwr7"]
+[ext_resource type="Texture2D" uid="uid://hx0myl27fcdh" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_bracket_less.png" id="68_jgafp"]
+[ext_resource type="Texture2D" uid="uid://b0623g1wrehu5" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_bracket_open.png" id="69_m4r6u"]
+[ext_resource type="Texture2D" uid="uid://1seolg1ver13" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_c.png" id="70_dq77t"]
+[ext_resource type="Texture2D" uid="uid://d24v410p55j1x" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_capslock.png" id="71_cvrja"]
+[ext_resource type="Texture2D" uid="uid://c1p7cxl6ildve" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_capslock_icon.png" id="72_7gbip"]
+[ext_resource type="Texture2D" uid="uid://yc6vo5ulousd" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_caret.png" id="73_y7mb4"]
+[ext_resource type="Texture2D" uid="uid://bk8wlt0hl38km" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_colon.png" id="74_ihlxj"]
+[ext_resource type="Texture2D" uid="uid://tqv3a1gon2ql" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_comma.png" id="75_blqun"]
+[ext_resource type="Texture2D" uid="uid://e8o8h0m1cpas" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_command.png" id="76_2hxd8"]
+[ext_resource type="Texture2D" uid="uid://ymd25lp47aj8" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_ctrl.png" id="77_iw132"]
+[ext_resource type="Texture2D" uid="uid://b7e8gs8ghfwul" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_d.png" id="78_4rg65"]
+[ext_resource type="Texture2D" uid="uid://b1olj0ssxhgfm" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_delete.png" id="79_2h3f3"]
+[ext_resource type="Texture2D" uid="uid://dxkxb7sn41nuc" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_e.png" id="80_popxp"]
+[ext_resource type="Texture2D" uid="uid://c2jmalak308n0" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_end.png" id="81_8v4o0"]
+[ext_resource type="Texture2D" uid="uid://b4rdku5kpiri7" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_enter.png" id="82_t1ide"]
+[ext_resource type="Texture2D" uid="uid://cg3mmy8p6y6wv" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_equals.png" id="83_lce02"]
+[ext_resource type="Texture2D" uid="uid://wtd8bk4yy1bm" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_escape.png" id="84_k1l3c"]
+[ext_resource type="Texture2D" uid="uid://voomxdqmbncg" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_exclamation.png" id="85_5c0ry"]
+[ext_resource type="Texture2D" uid="uid://di7mhboh24rvm" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f.png" id="86_272pw"]
+[ext_resource type="Texture2D" uid="uid://byuxr77l37g2u" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f1.png" id="87_wbtyu"]
+[ext_resource type="Texture2D" uid="uid://cpu71adff8x7j" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f10.png" id="88_bmwh3"]
+[ext_resource type="Texture2D" uid="uid://c7mc8ix650xrf" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f11.png" id="89_l7thy"]
+[ext_resource type="Texture2D" uid="uid://c1r3ajopeafk8" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f12.png" id="90_bk18r"]
+[ext_resource type="Texture2D" uid="uid://y0nnlk23m5le" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f2.png" id="91_hb6n3"]
+[ext_resource type="Texture2D" uid="uid://b7gbw6s2dke6d" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f3.png" id="92_1bnga"]
+[ext_resource type="Texture2D" uid="uid://dkij6fban3amo" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f4.png" id="93_k32qo"]
+[ext_resource type="Texture2D" uid="uid://be703khgmxxn4" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f5.png" id="94_gs3ai"]
+[ext_resource type="Texture2D" uid="uid://dahaafh8k3msb" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f6.png" id="95_ykymj"]
+[ext_resource type="Texture2D" uid="uid://c0rxwlyh7eky3" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f7.png" id="96_bvmpp"]
+[ext_resource type="Texture2D" uid="uid://ciexfqeo5c127" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f8.png" id="97_h56wy"]
+[ext_resource type="Texture2D" uid="uid://ckylyr5vjc3vg" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f9.png" id="98_tn766"]
+[ext_resource type="Texture2D" uid="uid://bo0liuk1qe7po" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_function.png" id="99_diaar"]
+[ext_resource type="Texture2D" uid="uid://cfke0s0vka6yf" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_g.png" id="100_c33em"]
+[ext_resource type="Texture2D" uid="uid://dbfoqfsdh0i2s" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_h.png" id="101_i6yc7"]
+[ext_resource type="Texture2D" uid="uid://1vnrgctqvyb4" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_home.png" id="102_0myrw"]
+[ext_resource type="Texture2D" uid="uid://dvdmvvr1t2pw5" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_i.png" id="103_byrcg"]
+[ext_resource type="Texture2D" uid="uid://df14c2htvdon1" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_insert.png" id="104_pn1w4"]
+[ext_resource type="Texture2D" uid="uid://cryhjweusg31d" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_j.png" id="105_32ywu"]
+[ext_resource type="Texture2D" uid="uid://cggyjmt4ck5d0" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_k.png" id="106_r0ah4"]
+[ext_resource type="Texture2D" uid="uid://f3qcbfmj6las" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_l.png" id="107_ayv67"]
+[ext_resource type="Texture2D" uid="uid://bov4xo8nyxqmx" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_m.png" id="108_itj7a"]
+[ext_resource type="Texture2D" uid="uid://cxnov32xx585q" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_minus.png" id="109_uk5r2"]
+[ext_resource type="Texture2D" uid="uid://kp8k0anw5pwe" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_n.png" id="110_u7nnk"]
+[ext_resource type="Texture2D" uid="uid://csyd3w6hmnrn1" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_numlock.png" id="111_tulqi"]
+[ext_resource type="Texture2D" uid="uid://bq601recs0n3r" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_numpad_enter.png" id="112_54cu6"]
+[ext_resource type="Texture2D" uid="uid://bpy33n7ckuehp" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_numpad_plus.png" id="113_66atw"]
+[ext_resource type="Texture2D" uid="uid://ckuw71phlk2y0" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_o.png" id="114_j4v3v"]
+[ext_resource type="Texture2D" uid="uid://cqiuqoc0hfc3c" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_option.png" id="115_xmmmu"]
+[ext_resource type="Texture2D" uid="uid://dim3n803vy20c" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_p.png" id="116_4qubp"]
+[ext_resource type="Texture2D" uid="uid://ddj1c65cf0585" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_page_down.png" id="117_jmqcw"]
+[ext_resource type="Texture2D" uid="uid://du7yagxwkrd0d" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_page_up.png" id="118_kau6o"]
+[ext_resource type="Texture2D" uid="uid://dwa4ouc8ynhwu" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_period.png" id="119_e3kpe"]
+[ext_resource type="Texture2D" uid="uid://bni8by5uj540s" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_plus.png" id="120_n0gcs"]
+[ext_resource type="Texture2D" uid="uid://cycryn1skeq38" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_printscreen.png" id="121_065s5"]
+[ext_resource type="Texture2D" uid="uid://d1sskqpo2ion0" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_q.png" id="122_8mylf"]
+[ext_resource type="Texture2D" uid="uid://h5fvejydy1f" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_question.png" id="123_gly0i"]
+[ext_resource type="Texture2D" uid="uid://1tev25327dlv" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_quote.png" id="124_ngd80"]
+[ext_resource type="Texture2D" uid="uid://b472wdhvrx8aa" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_r.png" id="125_ncn07"]
+[ext_resource type="Texture2D" uid="uid://dnxferbye86us" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_return.png" id="126_l1pdx"]
+[ext_resource type="Texture2D" uid="uid://bov4ot5v0h7kf" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_s.png" id="127_rhw0t"]
+[ext_resource type="Texture2D" uid="uid://bhqdmrd7k5d7y" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_semicolon.png" id="128_nyqy6"]
+[ext_resource type="Texture2D" uid="uid://c8am30pb0r6xe" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_shift.png" id="129_nmqx3"]
+[ext_resource type="Texture2D" uid="uid://br5h30jo4teps" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_shift_icon.png" id="130_7nii3"]
+[ext_resource type="Texture2D" uid="uid://bllecl6aqfbrh" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_slash_back.png" id="131_dftnn"]
+[ext_resource type="Texture2D" uid="uid://dbxlctky2s7gy" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_slash_forward.png" id="132_hg5vp"]
+[ext_resource type="Texture2D" uid="uid://b6qdtlfl0j0bw" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_space.png" id="133_m2qpr"]
+[ext_resource type="Texture2D" uid="uid://cjniao37r715a" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_space_icon.png" id="134_tq7q4"]
+[ext_resource type="Texture2D" uid="uid://c7cb1bycdeotb" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_t.png" id="135_4p7a0"]
+[ext_resource type="Texture2D" uid="uid://b7uonumdlmaxa" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_tab.png" id="136_ysadk"]
+[ext_resource type="Texture2D" uid="uid://ddmfip3tc13pw" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_tab_icon.png" id="137_n22ha"]
+[ext_resource type="Texture2D" uid="uid://bss2e4l1vks03" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_tab_icon_alternative.png" id="138_nb0fc"]
+[ext_resource type="Texture2D" uid="uid://djgan8kkm24wa" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_tilde.png" id="139_kdgwy"]
+[ext_resource type="Texture2D" uid="uid://cj35wgpvhiuwh" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_u.png" id="140_aafgp"]
+[ext_resource type="Texture2D" uid="uid://b44h4wqrktwsh" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_v.png" id="141_3bmwy"]
+[ext_resource type="Texture2D" uid="uid://blf1lpya67sae" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_w.png" id="142_av5w7"]
+[ext_resource type="Texture2D" uid="uid://7gw81mexss2t" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_win.png" id="143_u147m"]
+[ext_resource type="Texture2D" uid="uid://bux6eho57gkaa" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_x.png" id="144_ta4do"]
+[ext_resource type="Texture2D" uid="uid://c2qg1kptw3mpo" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_y.png" id="145_8fnc8"]
+[ext_resource type="Texture2D" uid="uid://c5hropbrm1d00" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_z.png" id="146_fbiub"]
+[ext_resource type="Texture2D" uid="uid://bm66gocjr4dgk" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse.png" id="147_68ifi"]
+[ext_resource type="Texture2D" uid="uid://ddgxt6kwv6da7" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_horizontal.png" id="148_xjoqb"]
+[ext_resource type="Texture2D" uid="uid://ca1ue0pvbfhu8" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_left.png" id="149_f7paj"]
+[ext_resource type="Texture2D" uid="uid://d3rxlo6xkgr37" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_move.png" id="150_nr43l"]
+[ext_resource type="Texture2D" uid="uid://cdmvjmyv6p7s8" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_right.png" id="151_xk3ux"]
+[ext_resource type="Texture2D" uid="uid://cu7x03ge0p7v6" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_scroll.png" id="152_4ssef"]
+[ext_resource type="Texture2D" uid="uid://cldti5w56f4e2" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_scroll_down.png" id="153_80xw7"]
+[ext_resource type="Texture2D" uid="uid://vapd17v018rc" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_scroll_up.png" id="154_4qnax"]
+[ext_resource type="Texture2D" uid="uid://dopaaulmrblw3" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_scroll_vertical.png" id="155_b1o13"]
+[ext_resource type="Texture2D" uid="uid://cf1gfxgspopix" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_small.png" id="156_6fwb1"]
+[ext_resource type="Texture2D" uid="uid://ds4egqpv1s45" path="res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_vertical.png" id="157_h0em6"]
+
+[node name="InputIconMapper" type="Node"]
+script = ExtResource("1_msrpt")
+prioritized_strings = Array[String](["outline"])
+replace_strings = {
+"Capslock": "Caps Lock",
+"Generic Stick": "Generic Left Stick",
+"Guide": "Home",
+"Slash Back": "Back Slash",
+"Slash Forward": "Slash",
+"Stick L": "Left Stick",
+"Stick R": "Right Stick",
+"Trigger L 1": "Left Shoulder",
+"Trigger L 2": "Left Trigger",
+"Trigger R 1": "Right Shoulder",
+"Trigger R 2": "Right Trigger"
+}
+filtered_strings = Array[String](["keyboard", "color", "button", "arrow", "outline"])
+matching_icons = {
+"": ExtResource("33_wroro"),
+"0": ExtResource("34_7em1m"),
+"1": ExtResource("35_pb8sn"),
+"2": ExtResource("36_ra38d"),
+"3": ExtResource("37_jqqp6"),
+"4": ExtResource("38_anfjc"),
+"5": ExtResource("39_1fml8"),
+"6": ExtResource("40_xfrfd"),
+"7": ExtResource("41_dywii"),
+"8": ExtResource("42_oaf71"),
+"9": ExtResource("43_5nvd7"),
+"A": ExtResource("44_uj267"),
+"Alt": ExtResource("45_rvpst"),
+"Any": ExtResource("46_qs56f"),
+"Apostrophe": ExtResource("47_qa21p"),
+"Arrows": ExtResource("52_2mqfx"),
+"Arrows All": ExtResource("53_pyh1g"),
+"Arrows Down": ExtResource("54_kjyhb"),
+"Arrows Horizontal": ExtResource("55_femw7"),
+"Arrows Left": ExtResource("56_e783t"),
+"Arrows None": ExtResource("57_4dbnh"),
+"Arrows Right": ExtResource("58_ck2y7"),
+"Arrows Up": ExtResource("59_7ncd5"),
+"Arrows Vertical": ExtResource("60_0fyvm"),
+"Asterisk": ExtResource("61_f22gc"),
+"B": ExtResource("62_ilibp"),
+"Back Slash": ExtResource("131_dftnn"),
+"Backspace": ExtResource("63_tokbn"),
+"Backspace Icon": ExtResource("64_546o6"),
+"Backspace Icon Alternative": ExtResource("65_j8a2t"),
+"Bracket Close": ExtResource("66_pv5c4"),
+"Bracket Greater": ExtResource("67_mnwr7"),
+"Bracket Less": ExtResource("68_jgafp"),
+"Bracket Open": ExtResource("69_m4r6u"),
+"C": ExtResource("70_dq77t"),
+"Caps Lock": ExtResource("71_cvrja"),
+"Caps Lock Icon": ExtResource("72_7gbip"),
+"Caret": ExtResource("73_y7mb4"),
+"Colon": ExtResource("74_ihlxj"),
+"Comma": ExtResource("75_blqun"),
+"Command": ExtResource("76_2hxd8"),
+"Ctrl": ExtResource("77_iw132"),
+"D": ExtResource("78_4rg65"),
+"Delete": ExtResource("79_2h3f3"),
+"Down": ExtResource("48_30kod"),
+"E": ExtResource("80_popxp"),
+"End": ExtResource("81_8v4o0"),
+"Enter": ExtResource("82_t1ide"),
+"Equals": ExtResource("83_lce02"),
+"Escape": ExtResource("84_k1l3c"),
+"Exclamation": ExtResource("85_5c0ry"),
+"F": ExtResource("86_272pw"),
+"F 1": ExtResource("87_wbtyu"),
+"F 10": ExtResource("88_bmwh3"),
+"F 11": ExtResource("89_l7thy"),
+"F 12": ExtResource("90_bk18r"),
+"F 2": ExtResource("91_hb6n3"),
+"F 3": ExtResource("92_1bnga"),
+"F 4": ExtResource("93_k32qo"),
+"F 5": ExtResource("94_gs3ai"),
+"F 6": ExtResource("95_ykymj"),
+"F 7": ExtResource("96_bvmpp"),
+"F 8": ExtResource("97_h56wy"),
+"F 9": ExtResource("98_tn766"),
+"Function": ExtResource("99_diaar"),
+"G": ExtResource("100_c33em"),
+"Generic": ExtResource("2_rmob6"),
+"Generic Circle": ExtResource("3_3shjr"),
+"Generic Circle Fill": ExtResource("4_heka5"),
+"Generic Finger": ExtResource("5_3xhe0"),
+"Generic Finger Pressed": ExtResource("6_nv4sl"),
+"Generic Joystick": ExtResource("16_n26sl"),
+"Generic Joystick Horizontal": ExtResource("17_yb68n"),
+"Generic Joystick Left": ExtResource("18_guyjh"),
+"Generic Joystick Red": ExtResource("19_4emaa"),
+"Generic Joystick Red Horizontal": ExtResource("20_c58e4"),
+"Generic Joystick Red Left": ExtResource("21_eg7gu"),
+"Generic Joystick Red Right": ExtResource("22_4fary"),
+"Generic Joystick Right": ExtResource("23_xst25"),
+"Generic Left Stick": ExtResource("24_gscn4"),
+"Generic Left Stick Down": ExtResource("25_fcxvh"),
+"Generic Left Stick Horizontal": ExtResource("26_jjijd"),
+"Generic Left Stick Left": ExtResource("27_50yv8"),
+"Generic Left Stick Press": ExtResource("28_nyrbr"),
+"Generic Left Stick Right": ExtResource("29_2hiw2"),
+"Generic Left Stick Side": ExtResource("30_lwlqf"),
+"Generic Left Stick Up": ExtResource("31_8xmek"),
+"Generic Left Stick Vertical": ExtResource("32_skmm7"),
+"Generic Pressed": ExtResource("7_qoyuh"),
+"Generic Square": ExtResource("8_dp5pp"),
+"Generic Square Fill": ExtResource("9_3g245"),
+"Generic Trigger A": ExtResource("10_jk1rk"),
+"Generic Trigger A Fill": ExtResource("11_j4r3x"),
+"Generic Trigger B": ExtResource("12_syt1y"),
+"Generic Trigger B Fill": ExtResource("13_6fv74"),
+"Generic Trigger C": ExtResource("14_ml7xr"),
+"Generic Trigger C Fill": ExtResource("15_7nj8s"),
+"H": ExtResource("101_i6yc7"),
+"Home": ExtResource("102_0myrw"),
+"I": ExtResource("103_byrcg"),
+"Insert": ExtResource("104_pn1w4"),
+"J": ExtResource("105_32ywu"),
+"K": ExtResource("106_r0ah4"),
+"L": ExtResource("107_ayv67"),
+"Left": ExtResource("49_x6nuk"),
+"M": ExtResource("108_itj7a"),
+"Minus": ExtResource("109_uk5r2"),
+"Mouse": ExtResource("147_68ifi"),
+"Mouse Horizontal": ExtResource("148_xjoqb"),
+"Mouse Left": ExtResource("149_f7paj"),
+"Mouse Move": ExtResource("150_nr43l"),
+"Mouse Right": ExtResource("151_xk3ux"),
+"Mouse Scroll": ExtResource("152_4ssef"),
+"Mouse Scroll Down": ExtResource("153_80xw7"),
+"Mouse Scroll Up": ExtResource("154_4qnax"),
+"Mouse Scroll Vertical": ExtResource("155_b1o13"),
+"Mouse Small": ExtResource("156_6fwb1"),
+"Mouse Vertical": ExtResource("157_h0em6"),
+"N": ExtResource("110_u7nnk"),
+"Numlock": ExtResource("111_tulqi"),
+"Numpad Enter": ExtResource("112_54cu6"),
+"Numpad Plus": ExtResource("113_66atw"),
+"O": ExtResource("114_j4v3v"),
+"Option": ExtResource("115_xmmmu"),
+"P": ExtResource("116_4qubp"),
+"Page Down": ExtResource("117_jmqcw"),
+"Page Up": ExtResource("118_kau6o"),
+"Period": ExtResource("119_e3kpe"),
+"Plus": ExtResource("120_n0gcs"),
+"Printscreen": ExtResource("121_065s5"),
+"Q": ExtResource("122_8mylf"),
+"Question": ExtResource("123_gly0i"),
+"Quote": ExtResource("124_ngd80"),
+"R": ExtResource("125_ncn07"),
+"Return": ExtResource("126_l1pdx"),
+"Right": ExtResource("50_wr4wj"),
+"S": ExtResource("127_rhw0t"),
+"Semicolon": ExtResource("128_nyqy6"),
+"Shift": ExtResource("129_nmqx3"),
+"Shift Icon": ExtResource("130_7nii3"),
+"Slash": ExtResource("132_hg5vp"),
+"Space": ExtResource("133_m2qpr"),
+"Space Icon": ExtResource("134_tq7q4"),
+"T": ExtResource("135_4p7a0"),
+"Tab": ExtResource("136_ysadk"),
+"Tab Icon": ExtResource("137_n22ha"),
+"Tab Icon Alternative": ExtResource("138_nb0fc"),
+"Tilde": ExtResource("139_kdgwy"),
+"U": ExtResource("140_aafgp"),
+"Up": ExtResource("51_owx1w"),
+"V": ExtResource("141_3bmwy"),
+"W": ExtResource("142_av5w7"),
+"Win": ExtResource("143_u147m"),
+"X": ExtResource("144_ta4do"),
+"Y": ExtResource("145_8fnc8"),
+"Z": ExtResource("146_fbiub")
+}
+all_icons = {
+"generic_button": ExtResource("2_rmob6"),
+"generic_button_circle": ExtResource("3_3shjr"),
+"generic_button_circle_fill": ExtResource("4_heka5"),
+"generic_button_finger": ExtResource("5_3xhe0"),
+"generic_button_finger_pressed": ExtResource("6_nv4sl"),
+"generic_button_pressed": ExtResource("7_qoyuh"),
+"generic_button_square": ExtResource("8_dp5pp"),
+"generic_button_square_fill": ExtResource("9_3g245"),
+"generic_button_trigger_a": ExtResource("10_jk1rk"),
+"generic_button_trigger_a_fill": ExtResource("11_j4r3x"),
+"generic_button_trigger_b": ExtResource("12_syt1y"),
+"generic_button_trigger_b_fill": ExtResource("13_6fv74"),
+"generic_button_trigger_c": ExtResource("14_ml7xr"),
+"generic_button_trigger_c_fill": ExtResource("15_7nj8s"),
+"generic_joystick": ExtResource("16_n26sl"),
+"generic_joystick_horizontal": ExtResource("17_yb68n"),
+"generic_joystick_left": ExtResource("18_guyjh"),
+"generic_joystick_red": ExtResource("19_4emaa"),
+"generic_joystick_red_horizontal": ExtResource("20_c58e4"),
+"generic_joystick_red_left": ExtResource("21_eg7gu"),
+"generic_joystick_red_right": ExtResource("22_4fary"),
+"generic_joystick_right": ExtResource("23_xst25"),
+"generic_stick": ExtResource("24_gscn4"),
+"generic_stick_down": ExtResource("25_fcxvh"),
+"generic_stick_horizontal": ExtResource("26_jjijd"),
+"generic_stick_left": ExtResource("27_50yv8"),
+"generic_stick_press": ExtResource("28_nyrbr"),
+"generic_stick_right": ExtResource("29_2hiw2"),
+"generic_stick_side": ExtResource("30_lwlqf"),
+"generic_stick_up": ExtResource("31_8xmek"),
+"generic_stick_vertical": ExtResource("32_skmm7"),
+"keyboard": ExtResource("33_wroro"),
+"keyboard_0": ExtResource("34_7em1m"),
+"keyboard_1": ExtResource("35_pb8sn"),
+"keyboard_2": ExtResource("36_ra38d"),
+"keyboard_3": ExtResource("37_jqqp6"),
+"keyboard_4": ExtResource("38_anfjc"),
+"keyboard_5": ExtResource("39_1fml8"),
+"keyboard_6": ExtResource("40_xfrfd"),
+"keyboard_7": ExtResource("41_dywii"),
+"keyboard_8": ExtResource("42_oaf71"),
+"keyboard_9": ExtResource("43_5nvd7"),
+"keyboard_a": ExtResource("44_uj267"),
+"keyboard_alt": ExtResource("45_rvpst"),
+"keyboard_any": ExtResource("46_qs56f"),
+"keyboard_apostrophe": ExtResource("47_qa21p"),
+"keyboard_arrow_down": ExtResource("48_30kod"),
+"keyboard_arrow_left": ExtResource("49_x6nuk"),
+"keyboard_arrow_right": ExtResource("50_wr4wj"),
+"keyboard_arrow_up": ExtResource("51_owx1w"),
+"keyboard_arrows": ExtResource("52_2mqfx"),
+"keyboard_arrows_all": ExtResource("53_pyh1g"),
+"keyboard_arrows_down": ExtResource("54_kjyhb"),
+"keyboard_arrows_horizontal": ExtResource("55_femw7"),
+"keyboard_arrows_left": ExtResource("56_e783t"),
+"keyboard_arrows_none": ExtResource("57_4dbnh"),
+"keyboard_arrows_right": ExtResource("58_ck2y7"),
+"keyboard_arrows_up": ExtResource("59_7ncd5"),
+"keyboard_arrows_vertical": ExtResource("60_0fyvm"),
+"keyboard_asterisk": ExtResource("61_f22gc"),
+"keyboard_b": ExtResource("62_ilibp"),
+"keyboard_backspace": ExtResource("63_tokbn"),
+"keyboard_backspace_icon": ExtResource("64_546o6"),
+"keyboard_backspace_icon_alternative": ExtResource("65_j8a2t"),
+"keyboard_bracket_close": ExtResource("66_pv5c4"),
+"keyboard_bracket_greater": ExtResource("67_mnwr7"),
+"keyboard_bracket_less": ExtResource("68_jgafp"),
+"keyboard_bracket_open": ExtResource("69_m4r6u"),
+"keyboard_c": ExtResource("70_dq77t"),
+"keyboard_capslock": ExtResource("71_cvrja"),
+"keyboard_capslock_icon": ExtResource("72_7gbip"),
+"keyboard_caret": ExtResource("73_y7mb4"),
+"keyboard_colon": ExtResource("74_ihlxj"),
+"keyboard_comma": ExtResource("75_blqun"),
+"keyboard_command": ExtResource("76_2hxd8"),
+"keyboard_ctrl": ExtResource("77_iw132"),
+"keyboard_d": ExtResource("78_4rg65"),
+"keyboard_delete": ExtResource("79_2h3f3"),
+"keyboard_e": ExtResource("80_popxp"),
+"keyboard_end": ExtResource("81_8v4o0"),
+"keyboard_enter": ExtResource("82_t1ide"),
+"keyboard_equals": ExtResource("83_lce02"),
+"keyboard_escape": ExtResource("84_k1l3c"),
+"keyboard_exclamation": ExtResource("85_5c0ry"),
+"keyboard_f": ExtResource("86_272pw"),
+"keyboard_f1": ExtResource("87_wbtyu"),
+"keyboard_f10": ExtResource("88_bmwh3"),
+"keyboard_f11": ExtResource("89_l7thy"),
+"keyboard_f12": ExtResource("90_bk18r"),
+"keyboard_f2": ExtResource("91_hb6n3"),
+"keyboard_f3": ExtResource("92_1bnga"),
+"keyboard_f4": ExtResource("93_k32qo"),
+"keyboard_f5": ExtResource("94_gs3ai"),
+"keyboard_f6": ExtResource("95_ykymj"),
+"keyboard_f7": ExtResource("96_bvmpp"),
+"keyboard_f8": ExtResource("97_h56wy"),
+"keyboard_f9": ExtResource("98_tn766"),
+"keyboard_function": ExtResource("99_diaar"),
+"keyboard_g": ExtResource("100_c33em"),
+"keyboard_h": ExtResource("101_i6yc7"),
+"keyboard_home": ExtResource("102_0myrw"),
+"keyboard_i": ExtResource("103_byrcg"),
+"keyboard_insert": ExtResource("104_pn1w4"),
+"keyboard_j": ExtResource("105_32ywu"),
+"keyboard_k": ExtResource("106_r0ah4"),
+"keyboard_l": ExtResource("107_ayv67"),
+"keyboard_m": ExtResource("108_itj7a"),
+"keyboard_minus": ExtResource("109_uk5r2"),
+"keyboard_n": ExtResource("110_u7nnk"),
+"keyboard_numlock": ExtResource("111_tulqi"),
+"keyboard_numpad_enter": ExtResource("112_54cu6"),
+"keyboard_numpad_plus": ExtResource("113_66atw"),
+"keyboard_o": ExtResource("114_j4v3v"),
+"keyboard_option": ExtResource("115_xmmmu"),
+"keyboard_p": ExtResource("116_4qubp"),
+"keyboard_page_down": ExtResource("117_jmqcw"),
+"keyboard_page_up": ExtResource("118_kau6o"),
+"keyboard_period": ExtResource("119_e3kpe"),
+"keyboard_plus": ExtResource("120_n0gcs"),
+"keyboard_printscreen": ExtResource("121_065s5"),
+"keyboard_q": ExtResource("122_8mylf"),
+"keyboard_question": ExtResource("123_gly0i"),
+"keyboard_quote": ExtResource("124_ngd80"),
+"keyboard_r": ExtResource("125_ncn07"),
+"keyboard_return": ExtResource("126_l1pdx"),
+"keyboard_s": ExtResource("127_rhw0t"),
+"keyboard_semicolon": ExtResource("128_nyqy6"),
+"keyboard_shift": ExtResource("129_nmqx3"),
+"keyboard_shift_icon": ExtResource("130_7nii3"),
+"keyboard_slash_back": ExtResource("131_dftnn"),
+"keyboard_slash_forward": ExtResource("132_hg5vp"),
+"keyboard_space": ExtResource("133_m2qpr"),
+"keyboard_space_icon": ExtResource("134_tq7q4"),
+"keyboard_t": ExtResource("135_4p7a0"),
+"keyboard_tab": ExtResource("136_ysadk"),
+"keyboard_tab_icon": ExtResource("137_n22ha"),
+"keyboard_tab_icon_alternative": ExtResource("138_nb0fc"),
+"keyboard_tilde": ExtResource("139_kdgwy"),
+"keyboard_u": ExtResource("140_aafgp"),
+"keyboard_v": ExtResource("141_3bmwy"),
+"keyboard_w": ExtResource("142_av5w7"),
+"keyboard_win": ExtResource("143_u147m"),
+"keyboard_x": ExtResource("144_ta4do"),
+"keyboard_y": ExtResource("145_8fnc8"),
+"keyboard_z": ExtResource("146_fbiub"),
+"mouse": ExtResource("147_68ifi"),
+"mouse_horizontal": ExtResource("148_xjoqb"),
+"mouse_left": ExtResource("149_f7paj"),
+"mouse_move": ExtResource("150_nr43l"),
+"mouse_right": ExtResource("151_xk3ux"),
+"mouse_scroll": ExtResource("152_4ssef"),
+"mouse_scroll_down": ExtResource("153_80xw7"),
+"mouse_scroll_up": ExtResource("154_4qnax"),
+"mouse_scroll_vertical": ExtResource("155_b1o13"),
+"mouse_small": ExtResource("156_6fwb1"),
+"mouse_vertical": ExtResource("157_h0em6")
+}
+files = Array[String](["res://scenes/menus/assets/icons/Generic/Default/generic_button.png", "res://scenes/menus/assets/icons/Generic/Default/generic_button_circle.png", "res://scenes/menus/assets/icons/Generic/Default/generic_button_circle_fill.png", "res://scenes/menus/assets/icons/Generic/Default/generic_button_finger.png", "res://scenes/menus/assets/icons/Generic/Default/generic_button_finger_pressed.png", "res://scenes/menus/assets/icons/Generic/Default/generic_button_pressed.png", "res://scenes/menus/assets/icons/Generic/Default/generic_button_square.png", "res://scenes/menus/assets/icons/Generic/Default/generic_button_square_fill.png", "res://scenes/menus/assets/icons/Generic/Default/generic_button_trigger_a.png", "res://scenes/menus/assets/icons/Generic/Default/generic_button_trigger_a_fill.png", "res://scenes/menus/assets/icons/Generic/Default/generic_button_trigger_b.png", "res://scenes/menus/assets/icons/Generic/Default/generic_button_trigger_b_fill.png", "res://scenes/menus/assets/icons/Generic/Default/generic_button_trigger_c.png", "res://scenes/menus/assets/icons/Generic/Default/generic_button_trigger_c_fill.png", "res://scenes/menus/assets/icons/Generic/Default/generic_joystick.png", "res://scenes/menus/assets/icons/Generic/Default/generic_joystick_horizontal.png", "res://scenes/menus/assets/icons/Generic/Default/generic_joystick_left.png", "res://scenes/menus/assets/icons/Generic/Default/generic_joystick_red.png", "res://scenes/menus/assets/icons/Generic/Default/generic_joystick_red_horizontal.png", "res://scenes/menus/assets/icons/Generic/Default/generic_joystick_red_left.png", "res://scenes/menus/assets/icons/Generic/Default/generic_joystick_red_right.png", "res://scenes/menus/assets/icons/Generic/Default/generic_joystick_right.png", "res://scenes/menus/assets/icons/Generic/Default/generic_stick.png", "res://scenes/menus/assets/icons/Generic/Default/generic_stick_down.png", "res://scenes/menus/assets/icons/Generic/Default/generic_stick_horizontal.png", "res://scenes/menus/assets/icons/Generic/Default/generic_stick_left.png", "res://scenes/menus/assets/icons/Generic/Default/generic_stick_press.png", "res://scenes/menus/assets/icons/Generic/Default/generic_stick_right.png", "res://scenes/menus/assets/icons/Generic/Default/generic_stick_side.png", "res://scenes/menus/assets/icons/Generic/Default/generic_stick_up.png", "res://scenes/menus/assets/icons/Generic/Default/generic_stick_vertical.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_0.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_1.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_2.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_3.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_4.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_5.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_6.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_7.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_8.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_9.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_a.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_alt.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_any.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_apostrophe.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrow_down.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrow_left.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrow_right.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrow_up.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_all.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_down.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_horizontal.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_left.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_none.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_right.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_up.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_arrows_vertical.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_asterisk.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_b.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_backspace.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_backspace_icon.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_backspace_icon_alternative.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_bracket_close.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_bracket_greater.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_bracket_less.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_bracket_open.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_c.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_capslock.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_capslock_icon.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_caret.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_colon.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_comma.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_command.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_ctrl.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_d.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_delete.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_e.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_end.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_enter.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_equals.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_escape.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_exclamation.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f1.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f10.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f11.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f12.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f2.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f3.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f4.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f5.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f6.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f7.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f8.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_f9.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_function.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_g.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_h.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_home.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_i.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_insert.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_j.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_k.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_l.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_m.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_minus.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_n.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_numlock.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_numpad_enter.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_numpad_plus.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_o.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_option.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_p.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_page_down.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_page_up.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_period.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_plus.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_printscreen.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_q.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_question.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_quote.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_r.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_return.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_s.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_semicolon.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_shift.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_shift_icon.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_slash_back.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_slash_forward.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_space.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_space_icon.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_t.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_tab.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_tab_icon.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_tab_icon_alternative.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_tilde.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_u.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_v.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_w.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_win.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_x.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_y.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/keyboard_z.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_horizontal.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_left.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_move.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_right.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_scroll.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_scroll_down.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_scroll_up.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_scroll_vertical.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_small.png", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default/mouse_vertical.png"])
+directories = Array[String](["res://scenes/menus/assets/icons/Generic/Default", "res://scenes/menus/assets/icons/Keyboard & Mouse/Default"])
+filter = "color"
+ends_with = ".png"
+not_ends_with = "outline.png"
