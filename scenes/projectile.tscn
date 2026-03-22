@@ -16,3 +16,5 @@ mesh = SubResource("SphereMesh_6aapk")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 shape = SubResource("SphereShape3D_6aapk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

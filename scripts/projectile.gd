@@ -8,3 +8,9 @@ func _ready():
 
 func _physics_process(delta):
 	global_position += velocity * delta
+
+
+func _on_body_entered(body: Node3D) -> void:
+	if(body is asteroid):
+		body.queue_free()
+		queue_free()

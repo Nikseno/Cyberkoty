@@ -38,16 +38,16 @@ func _spawn_wave():
 		elif(z == 2):
 			ast.r = 1
 		elif(z == 3):
-			ast.r = 1
+			ast.r = 2
 		elif(z == 4):
-			ast.r = 1
+			ast.r = 2
 		elif(z == 5):
-			ast.r = 5
+			ast.r = 4
 		elif(z == 6):
-			ast.r = 5
+			ast.r = 4
 		ast.linear_velocity = ast.position.direction_to($SpaceShip.position) * 100
 		add_child(ast)
 
 
 func _on_timer_timeout() -> void:
-	pass#_spawn_wave() # Replace with function body.
+	_spawn_wave() # Replace with function body.

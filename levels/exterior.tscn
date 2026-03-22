@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://du1rw88jmkphn"]
+[gd_scene load_steps=4 format=3 uid="uid://du1rw88jmkphn"]
 
 [ext_resource type="Script" uid="uid://dwhn2tu8oubut" path="res://scripts/exterior.gd" id="1_acgob"]
 [ext_resource type="PackedScene" uid="uid://c2aduixucw7pb" path="res://scenes/space_ship.tscn" id="2_aebon"]
 [ext_resource type="PackedScene" uid="uid://convsxr6pjedi" path="res://scenes/tarcze.tscn" id="3_medmb"]
-[ext_resource type="PackedScene" uid="uid://dmpjevqc5yk8s" path="res://assets/3d/SpaceShip/Imperial.gltf" id="3_x5j2k"]
-[ext_resource type="PackedScene" uid="uid://rxf020b2tdp5" path="res://scenes/projectile.tscn" id="5_cpupv"]
 
 [node name="Exterior" type="Node3D"]
 script = ExtResource("1_acgob")
@@ -15,23 +13,8 @@ transform = Transform3D(0.9996383, 0, 0.02689228, 0, 1, 0, -0.02689228, 0, 0.999
 [node name="Tarcze" parent="SpaceShip" instance=ExtResource("3_medmb")]
 transform = Transform3D(0.99963844, 0, -0.026892284, 0, 1, 0, 0.026892284, 0, 0.99963844, 0, 0, 0)
 
-[node name="Imperial" parent="." instance=ExtResource("3_x5j2k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6230632, -17.565254, 31.490007)
-
-[node name="Imperial2" parent="." instance=ExtResource("3_x5j2k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6230632, -17.565254, 69.99952)
-
-[node name="Imperial3" parent="." instance=ExtResource("3_x5j2k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6230632, -17.565254, 155.43658)
-
-[node name="Imperial4" parent="." instance=ExtResource("3_x5j2k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6230632, -17.565254, 327.8914)
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
-
-[node name="projectile" parent="." instance=ExtResource("5_cpupv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1807194, 2.3107598, -0.40503448)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

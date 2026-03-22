@@ -88,3 +88,5 @@ func handle_input():
 		#get_node("dzialko").rotation_degrees.y = get_node("dzialko").rotation_degrees.y - 2
 		#get_node("dzialko2").rotation_degrees.y = get_node("dzialko2").rotation_degrees.y - 2
 	#move_and_slide()
+
+ # Replace with function body.
