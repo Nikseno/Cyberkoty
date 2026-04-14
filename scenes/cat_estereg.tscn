@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2y7y81y0fi0h"]
+
+[ext_resource type="PackedScene" uid="uid://c1kbfu8n4hha7" path="res://assets/3d/estereggs/Eastereggs.fbx" id="1_1bv71"]
+
+[node name="Eastereggs" instance=ExtResource("1_1bv71")]
