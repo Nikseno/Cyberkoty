@@ -4,16 +4,19 @@ var r
 var catt = preload("res://scenes/cat_on_asteroid.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	angular_velocity = Vector3(randi_range(1,20),randi_range(1,20),randi_range(1,20))
 	var z = randi_range(1,25) #PRAWDOPODOBIENSTWO TEGO ZE BEDZIE 1 ZAMIAST ASYEROIFDY
 	if(z == 1): 
-		$Cube_001.scale = Vector3(300,300,300) * 6 * r
-		$Cube_001.visible = true
+		$bazuka.scale *= r
+		$cat.position.y *= r
+		$bazuka.visible = true
 		$MeshInstance3D.visible = false
 		$MeshInstance3D2.visible = false
 	else:
 		$MeshInstance3D.scale =  Vector3(1,1,1) * 6 * r
 		$MeshInstance3D2.scale =  Vector3(1,1,1) * 6 * r
-		$Cube_001.visible = false
+		$cat.position.y *= r
+		$bazuka.visible = false
 		$MeshInstance3D.visible = true
 		$MeshInstance3D2.visible = true
 	var zz = randi_range(1,25) # PRAWDOPODOBIENSTWO ZE BEDZUE KOT NA ASYEROIFZIR

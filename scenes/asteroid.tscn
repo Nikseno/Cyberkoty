@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://nlgjty2ukjn0"]
+[gd_scene load_steps=10 format=3 uid="uid://nlgjty2ukjn0"]
 
 [ext_resource type="Script" uid="uid://d1o88c6lkr5sh" path="res://scripts/asteroid.gd" id="1_akfqu"]
-[ext_resource type="PackedScene" uid="uid://0mpcmsdftr3i" path="res://scenes/ester_cat.tscn" id="2_6mo6b"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_p0ukn"]
 
@@ -14,18 +13,23 @@ albedo_texture = SubResource("ImageTexture_u87q6")
 material = SubResource("StandardMaterial3D_p0ukn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6mo6b"]
-albedo_color = Color(1, 0.21960784, 1, 1)
+albedo_color = Color(1, 1, 0.1882353, 1)
 
-[sub_resource type="PrismMesh" id="PrismMesh_t4se3"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t4se3"]
 material = SubResource("StandardMaterial3D_6mo6b")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akfqu"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_6mo6b"]
+material = SubResource("StandardMaterial3D_akfqu")
+
 [node name="Asteroid" type="RigidBody3D"]
-axis_lock_linear_y = true
-axis_lock_angular_y = true
 mass = 1000.0
 gravity_scale = 0.0
 inertia = Vector3(10000, 10000, 10000)
 linear_velocity = Vector3(0, 0, 10)
+angular_damp = 1.0
 script = ExtResource("1_akfqu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -38,18 +42,22 @@ autostart = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_u87q6")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(5.12132, -0.8786797, 2.9999998, 2.9999998, 2.9999998, -4.2426405, -0.8786797, 5.12132, 2.9999998, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_u87q6")
 
-[node name="Cube_001" parent="." instance=ExtResource("2_6mo6b")]
-transform = Transform3D(2.264937e-05, -300, -1.3113417e-05, 0, -1.3113417e-05, 300, -300, -2.264937e-05, -9.900354e-13, 0, -2.9663987, 0)
-
 [node name="cat" type="MeshInstance3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 5.707887, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 6, 0)
 visible = false
-mesh = SubResource("PrismMesh_t4se3")
+mesh = SubResource("CapsuleMesh_t4se3")
+
+[node name="bazuka" type="MeshInstance3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_6mo6b")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

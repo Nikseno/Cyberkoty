@@ -1,23 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfsn0m6fa85pv"]
+[gd_scene load_steps=5 format=3 uid="uid://cfsn0m6fa85pv"]
 
 [ext_resource type="Script" uid="uid://chcny4q7yglg6" path="res://scripts/cat_on_asteroid.gd" id="1_n0edh"]
-[ext_resource type="PackedScene" uid="uid://0mpcmsdftr3i" path="res://scenes/ester_cat.tscn" id="2_u64lm"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_p0ukn"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0edh"]
-albedo_color = Color(1, 0.13333334, 1, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uv8r8"]
+albedo_color = Color(1, 1, 0.1882353, 1)
 
-[sub_resource type="PrismMesh" id="PrismMesh_n0edh"]
-material = SubResource("StandardMaterial3D_n0edh")
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n0edh"]
+material = SubResource("StandardMaterial3D_uv8r8")
 
 [node name="Cat" type="RigidBody3D"]
-axis_lock_linear_y = true
-axis_lock_angular_y = true
-mass = 1000.0
+mass = 20.0
 gravity_scale = 0.0
 inertia = Vector3(10000, 10000, 10000)
 linear_velocity = Vector3(0, 0, 10)
+angular_damp = 1.0
 script = ExtResource("1_n0edh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -28,12 +26,8 @@ shape = SubResource("SphereShape3D_p0ukn")
 wait_time = 30.0
 autostart = true
 
-[node name="Cube_001" parent="." instance=ExtResource("2_u64lm")]
-transform = Transform3D(2.264937e-05, -300, -1.3113417e-05, 0, -1.3113417e-05, 300, -300, -2.264937e-05, -9.900354e-13, 0, -2.9663987, 0)
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
-mesh = SubResource("PrismMesh_n0edh")
+[node name="cat" type="MeshInstance3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_n0edh")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

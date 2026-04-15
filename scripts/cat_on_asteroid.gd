@@ -3,7 +3,7 @@ class_name cat
 var r
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	add_constant_torque(Vector3(100,0,0))
+	angular_velocity = Vector3(randi_range(1,20),randi_range(1,20),randi_range(1,20))
 	# Replace with function body.
 #	$CollisionShape3D.scale = Vector3(1,1,1) * 8 * r# = Vector3(randf_range(1,3),randf_range(1,3),randf_range(1,3))
 	#PhysicsServer3D.body_set_param(get_rid(), 3, Vector3(10000,10000,10000) * r)
@@ -18,5 +18,3 @@ func _physics_process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	pass
-	if(position.distance_to(get_parent().get_node("SpaceShip").position) > 2000):
-		queue_free()
